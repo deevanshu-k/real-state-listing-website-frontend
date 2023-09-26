@@ -22,7 +22,7 @@
                     <h1>Be a co-Landlord</h1>
                     <h1>Brick by Brick</h1>
                 </div>
-                <div class="d-flex flex-row-reverse bg-white">
+                <div class="d-flex flex-row-reverse justify-content-between bg-white">
                     <p>
                         Through the power of the group, you no longer have to wait to gather a small fortune in order to
                         invest
@@ -31,9 +31,27 @@
                         small
                         bit of a big property.
                     </p>
+                    <div class="d-flex p-right-tag">
+                        <div class="circle position-relative">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="39" height="39" viewBox="0 0 39 39" fill="none">
+                                <circle cx="19.5" cy="19.5" r="19.5" fill="#CBE9FF" />
+                            </svg>
+                            <svg class="position-absolute top-50 start-50 translate-middle" xmlns="http://www.w3.org/2000/svg" width="23" height="24" viewBox="0 0 23 24"
+                                fill="none">
+                                <ellipse cx="11.5" cy="12" rx="11.5" ry="12" fill="#0193FD" />
+                            </svg>
+                        </div>
+                        <div class="d-flex flex-column justify-content-center">
+                            <h4>Watch how <span class="property">Property</span><span class="crest">Crest</span> works</h4>
+                            <h5>Presented by PropertyCrest CEO</h5>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="main-body bg-white">
+            <router-outlet></router-outlet>
+        </div>
     </div>
-    
+
 </div>
