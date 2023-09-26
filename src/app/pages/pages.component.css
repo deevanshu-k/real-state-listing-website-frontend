@@ -1,0 +1,111 @@
+.main {
+    background-image: url("../../assets/landlord.jpg");
+    background-size: cover;
+    height: 100vh;
+    overflow-y: scroll;
+    padding-top: 90px
+}
+
+.main-frame2 {
+    background-image: url("../../assets/landlord_frame2.png");
+    background-repeat: no-repeat;
+    background-position: 0px -214px;
+}
+
+.header-search-bar {
+    max-width: 500px;
+    min-height: 432px;
+}
+
+.header-main {
+    padding-top: 125px;
+    padding-left: 70px;
+}
+
+.header-main h1 {
+    color: #FFF;
+    font-family: var(--primary-font);
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 14px;
+}
+
+.header-main h4 {
+    max-width: 418px;
+    color: #FFF;
+    font-family: var(--primary-font);
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 19px;
+}
+
+.header-main .search-bar {
+    position: relative;
+    width: 370px;
+    height: 38px;
+    flex-shrink: 0;
+    border-radius: 33px;
+    background: #FFF;
+}
+
+.header-main .search-bar input {
+    height: 38px;
+    width: 370px;
+    border: 0px;
+    border-radius: 33px;
+
+    color: #BDBDBD;
+    font-family: Montserrat;
+    font-style: italic;
+    font-weight: 400;
+    line-height: normal;
+    padding-left: 18px;
+}
+
+.header-main .search-bar svg {
+    position: absolute;
+    right: 10px;
+}
+
+.header-2 {
+    padding-right: 70px;
+}
+
+.header-2 h1 {
+    text-align: end;
+}
+
+.header-2 .text h1:nth-child(1) {
+    color: #058EFC;
+    text-align: right;
+    font-family: Montserrat;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.header-2 .text h1:nth-child(2) {
+    color: #2A67F7;
+    font-family: Montserrat;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.header-2 p {
+    width: 450px;
+    color: #000;
+    text-align: right;
+    font-family: Montserrat;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 186.4%;
+    /* 24.232px */
+}
