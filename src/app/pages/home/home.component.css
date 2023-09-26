@@ -1,0 +1,201 @@
+.destination-cards {
+    background: linear-gradient(180deg, #177BFA 43.53%, rgba(5, 143, 252, 0.12) 100%);
+    padding-top: 72px;
+    padding-bottom: 63px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.destination-cards h1 {
+    color: #19FFE3;
+    text-align: center;
+    font-family: var(--tertiory-font);
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 82.8%;
+}
+
+.destination-cards h2 {
+    color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    text-transform: lowercase;
+}
+
+.destination-cards p {
+    width: 972px;
+    text-align: center;
+    padding-top: 42px;
+    padding-bottom: 52px;
+
+    color: #FFF;
+    text-shadow: 0px 1px 2px rgba(255, 255, 255, 0.50);
+    font-family: var(--primary-font);
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 200;
+    line-height: normal;
+}
+
+.destination-cards .cards .card {
+    width: 260px;
+    height: 375px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.destination-cards .cards .card:nth-child(1) {
+    background-image: url("https://placehold.jp/260x415.png");
+}
+
+.destination-cards .cards .card:nth-child(2) {
+    background-image: url("https://placehold.jp/260x415.png");
+}
+
+.destination-cards .cards .card:nth-child(3) {
+    background-image: url("https://placehold.jp/260x415.png");
+}
+
+.destination-cards .cards .card:nth-child(4) {
+    background-image: url("https://placehold.jp/260x415.png");
+}
+
+.destination-cards .cards .card .message {
+    padding: 58px;
+}
+
+.destination-cards .cards .card .message h4:nth-child(1) {
+    color: #FFF;
+    margin-bottom: 38px;
+    text-align: center;
+    font-family: Inter;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+.destination-cards .cards .card .message h4:nth-child(2) {
+    color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+/* How it work card */
+
+.how-it-work-cards {
+    background: #FFF;
+    padding-top: 72px;
+    padding-bottom: 63px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.how-it-work-cards h1 {
+    color: #1979FA;
+    text-align: center;
+    font-family: var(--tertiory-font);
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 82.8%;
+}
+
+.how-it-work-cards h2 {
+    color: #1F1634;
+    text-align: center;
+    font-family: Inter;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    text-transform: lowercase;
+}
+
+.how-it-work-cards p {
+    width: 972px;
+    text-align: center;
+    padding-top: 42px;
+    padding-bottom: 52px;
+
+    /* color: #FFF; */
+    /* text-shadow: 0px 1px 2px rgba(255, 255, 255, 0.50); */
+
+    color: #545454;
+    text-align: center;
+    font-family: var(--primary-font);
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 200;
+    line-height: normal;
+}
+
+.how-it-work-cards .cards .card {
+    width: 240px;
+    height: 315px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.how-it-work-cards .cards .card .image {
+    width: 240px;
+    height: 180px;
+}
+
+.how-it-work-cards .cards .card:nth-child(1) .image {
+    background: url("../../../assets/man_searching_music_with_phone.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.how-it-work-cards .cards .card:nth-child(2) .image {
+    background: url("../../../assets/paper_plane.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.how-it-work-cards .cards .card:nth-child(3) .image {
+    background: url("../../../assets/contract_checkmark_button.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.how-it-work-cards .cards .card:nth-child(4) .image {
+    background: url("../../../assets/Car_purchase_agreement.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.how-it-work-cards .cards .card .texts {
+    padding: 18px;
+    height: 135px;
+}
+
+.how-it-work-cards .cards .card .texts h4 {
+    color: #000;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.how-it-work-cards .cards .card .texts p {
+    color: #000;
+    width: 100%;
+    padding: 0px;
+    font-family: Inter;
+    text-align: left;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+}
