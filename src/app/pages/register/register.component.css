@@ -1,7 +1,10 @@
 .main {
-    width: 100vw;
+    height: 100vh;
+    overflow-y: scroll;
+    padding-top: 62px
+}
+.main-login-container {
     min-height: calc(100vh - 62px);
-    margin-top: 62px;
 }
 
 .register-container {
@@ -51,6 +54,12 @@
 
 .register-container .register {
     padding-top: 55px;
+}
+
+.register-container .register button:active {
+    background-color: #FFF !important;
+    color: #1979FA !important;
+    border: 1px solid #EAEBF6;
 }
 
 .register-container .register h4 {

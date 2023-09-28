@@ -8,3 +8,8 @@
     --secondry-font: Raleway;
     --tertiory-font: Pacifico;
 }
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
