@@ -3,6 +3,10 @@
     padding-bottom: 12px;
 }
 
+.menu-button {
+    display: none;
+}
+
 .nav-bar .logo {
     color: #FFF;
     font-family: var(--primary-font);
@@ -41,4 +45,23 @@
 .nav-bar .action .sign-in:active {
     background-color: #FFF;
     color: #1979FA;
+}
+
+/* Side Nav  */
+.sidenav {
+    background-color: #1979FA;
+    width: 300px;
+}
+
+/* Media Query */
+@media screen and (max-width: 1090px) {
+    .menu-button {
+        display: block !important;
+    }
+    .links {
+        display: none !important;
+    }
+    .logo span:nth-child(1) {
+        display: none !important;
+    }
 }
