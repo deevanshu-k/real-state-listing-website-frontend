@@ -1,0 +1,222 @@
+.main {
+    height: 100vh;
+    overflow-y: scroll;
+    padding-top: 62px
+}
+.main-login-container {
+    min-height: calc(100vh - 62px);
+}
+
+.register-container {
+    width: 900px;
+    height: 550px;
+
+    border-radius: 35px;
+    background: #FFF;
+    box-shadow: 0px 2px 15px 0px rgba(255, 255, 255, 0.21);
+}
+
+.register-container .register,
+.register-container .cover {
+    width: 50%;
+}
+
+/* Cover  */
+
+.register-container .cover {
+    border-top-left-radius: 35px;
+    border-bottom-left-radius: 35px;
+    background: linear-gradient(33deg, #19FFE3 -25.78%, #3F51F4 100%);
+}
+
+.register-container .cover h1 {
+    color: #FFF;
+    font-family: Inter;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.register-container .cover div {
+    width: 100%;
+    height: 200px;
+    background: url("../../../assets/Login.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.register-container .cover h1 {
+    margin-top: 20px;
+}
+
+/* Login Form  */
+
+.register-container .register {
+    padding-top: 35px;
+}
+
+/* .register-container .register button:active {
+    background-color: #FFF !important;
+    color: #1979FA !important;
+    border: 1px solid #EAEBF6;
+} */
+
+.register-container .register h4 {
+    color: #000;
+    font-family: Inter;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.register-container .register div:nth-child(1) button {
+    border-radius: 50px;
+    background: #2076FF;
+    box-shadow: 0px 15px 50px 0px rgba(222, 95, 143, 0.12);
+    width: 180px;
+    padding: 6px 10px;
+    border: 0px;
+
+    color: #FFF;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.register-container .register div:nth-child(1) p {
+    color: #94969A;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-align: center;
+}
+
+.register-container .register .form .field {
+    margin-top: 15px;
+}
+
+.register-container .register .form label {
+    color: #000;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    display: block;
+}
+
+.register-container .register .form input,
+.register-container .register .form .toggle-menu {
+    width: 100%;
+    border-radius: 50px;
+    border: 1px solid #EAEBF6;
+    background: #FFF;
+    padding-left: 45px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.register-container .register .form .input {
+    position: relative;
+    margin-top: 14px;
+}
+
+.register-container .register .form .field:nth-child(1) svg,
+.register-container .register .form .field:nth-child(2) svg {
+    position: absolute;
+    left: 14px;
+    top: 8px;
+}
+
+.register-container .register .form .field:nth-child(3) svg {
+    position: absolute;
+    right: 14px;
+    top: 14px;
+}
+
+.register-container .register .form .field:nth-child(3) span {
+    display: block;
+}
+
+::ng-deep .mat-mdc-menu-panel {
+    min-width: 20px !important;
+}
+
+.register-container .register .action input {
+    border-radius: 6px;
+    border: 1px solid #EAEBF6 !important;
+    background: #FFF;
+    cursor: pointer;
+}
+
+.register-container .register .action span:nth-child(1) {
+    color: #94969A;
+    font-family: Inter;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 500;
+}
+
+.register-container .register .action .forget-pswd {
+    color: #3F20FF;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.register-container .register .action .forget-pswd:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.register-container .register .action div:nth-child(1) {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.register-container .register .action button {
+    border-radius: 50px;
+    background: #2076FF;
+    box-shadow: 0px 15px 50px 0px rgba(222, 95, 143, 0.12);
+    width: 100%;
+    height: 36px;
+    padding: 6px 10px;
+    border: 0px;
+    margin-top: 20px;
+
+    color: #FFF;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.register-container .register .action button:disabled {
+    background-color: #2075ff8b !important;
+}
+
+/* Media Query */
+@media screen and (max-width: 860px) {
+    .register-container .cover {
+        display: none !important;
+    }
+    .register-container .register {
+        width: 100%;
+        z-index: 999;
+    }
+}

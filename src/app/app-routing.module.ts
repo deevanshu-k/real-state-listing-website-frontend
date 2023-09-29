@@ -6,6 +6,7 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
+import { FindRoomsComponent } from './pages/find-rooms/find-rooms.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,7 @@ const routes: Routes = [
       { path: "", redirectTo: "home", pathMatch: 'prefix' },
       { path: "home", component: HomeComponent },
       { path: "aboutus", component: AboutUsComponent },
+      { path: "findrooms", component: FindRoomsComponent },
       { path: "contactus", component: ContactUsComponent },
       { path: "login", component: LoginComponent},
       { path: "register", component: RegisterComponent}

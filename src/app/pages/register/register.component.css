@@ -3,13 +3,14 @@
     overflow-y: scroll;
     padding-top: 62px
 }
-.main-login-container {
+
+.main-register-container {
     min-height: calc(100vh - 62px);
 }
 
 .register-container {
     width: 900px;
-    height: 480px;
+    height: 550px;
 
     border-radius: 35px;
     background: #FFF;
@@ -50,10 +51,32 @@
     margin-top: 20px;
 }
 
-/* Login Form  */
+/* Register Form  */
 
 .register-container .register {
     padding-top: 35px;
+}
+
+.register-container .register .p-signIn {
+    color: #94969A;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-align: end;
+    padding-right: 45px;
+}
+
+.register-container .register .p-signIn span {
+    color: #553BF1;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.register-container .register .p-signIn span:hover {
+    text-decoration: underline;
 }
 
 .register-container .register button:active {
@@ -69,6 +92,7 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    text-align: center;
 }
 
 .register-container .register div:nth-child(1) button {
@@ -98,7 +122,7 @@
 }
 
 .register-container .register .form .field {
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .register-container .register .form label {
@@ -111,7 +135,8 @@
     display: block;
 }
 
-.register-container .register .form input {
+.register-container .register .form input,
+.register-container .register .form .toggle-menu {
     width: 100%;
     border-radius: 50px;
     border: 1px solid #EAEBF6;
@@ -132,10 +157,26 @@
     margin-top: 14px;
 }
 
-.register-container .register .form .field svg {
+.register-container .register .form .field:nth-child(1) svg,
+.register-container .register .form .field:nth-child(2) svg,
+.register-container .register .form .field:nth-child(3) svg {
     position: absolute;
     left: 14px;
     top: 8px;
+}
+
+.register-container .register .form .field:nth-child(4) svg {
+    position: absolute;
+    right: 14px;
+    top: 14px;
+}
+
+.register-container .register .form .field:nth-child(4) span {
+    display: block;
+}
+
+::ng-deep .mat-mdc-menu-panel {
+    min-width: 20px !important;
 }
 
 .register-container .register .action input {
@@ -194,6 +235,7 @@
     .register-container .cover {
         display: none !important;
     }
+
     .register-container .register {
         width: 100%;
         z-index: 999;
