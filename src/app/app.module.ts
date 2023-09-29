@@ -11,6 +11,14 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { FooterComponent } from './pages/footer/footer.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+
+import {MatMenuModule} from '@angular/material/menu';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
+import { FindRoomsComponent } from './pages/find-rooms/find-rooms.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,11 +30,19 @@ import { FooterComponent } from './pages/footer/footer.component';
     LoginComponent,
     RegisterComponent,
     ContactUsComponent,
-    FooterComponent
+    FooterComponent,
+    FindRoomsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+
+    MatMenuModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
