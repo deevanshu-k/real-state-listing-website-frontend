@@ -8,8 +8,8 @@
 }
 
 .register-container {
-    width: 980px;
-    height: 500px;
+    width: 900px;
+    height: 480px;
 
     border-radius: 35px;
     background: #FFF;
@@ -53,7 +53,7 @@
 /* Login Form  */
 
 .register-container .register {
-    padding-top: 55px;
+    padding-top: 35px;
 }
 
 .register-container .register button:active {
