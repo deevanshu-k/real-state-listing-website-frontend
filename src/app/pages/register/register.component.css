@@ -10,7 +10,7 @@
 
 .register-container {
     width: 900px;
-    height: 550px;
+    height: auto;
 
     border-radius: 35px;
     background: #FFF;
@@ -79,12 +79,6 @@
     text-decoration: underline;
 }
 
-.register-container .register button:active {
-    background-color: #FFF !important;
-    color: #1979FA !important;
-    border: 1px solid #EAEBF6;
-}
-
 .register-container .register h4 {
     color: #000;
     font-family: Inter;
@@ -100,6 +94,7 @@
     background: #2076FF;
     box-shadow: 0px 15px 50px 0px rgba(222, 95, 143, 0.12);
     width: 180px;
+    height: 36px;
     padding: 6px 10px;
     border: 0px;
 
@@ -136,6 +131,7 @@
 }
 
 .register-container .register .form input,
+.register-container .register .form textarea,
 .register-container .register .form .toggle-menu {
     width: 100%;
     border-radius: 50px;
@@ -152,6 +148,11 @@
     line-height: normal;
 }
 
+.register-container .register .form textarea {
+    height: 50px;
+    border-radius: 16px !important;
+}
+
 .register-container .register .form .input {
     position: relative;
     margin-top: 14px;
@@ -159,19 +160,20 @@
 
 .register-container .register .form .field:nth-child(1) svg,
 .register-container .register .form .field:nth-child(2) svg,
+.register-container .register .form .field:nth-child(3) svg,
 .register-container .register .form .field:nth-child(3) svg {
     position: absolute;
     left: 14px;
     top: 8px;
 }
 
-.register-container .register .form .field:nth-child(4) svg {
+.register-container .register .form .field:nth-child(5) svg {
     position: absolute;
     right: 14px;
     top: 14px;
 }
 
-.register-container .register .form .field:nth-child(4) span {
+.register-container .register .form .field:nth-child(5) span {
     display: block;
 }
 
@@ -228,6 +230,10 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+}
+
+.register-container .register .action button:disabled {
+    background-color: #2075ff8b !important;
 }
 
 /* OPT Verification  */
