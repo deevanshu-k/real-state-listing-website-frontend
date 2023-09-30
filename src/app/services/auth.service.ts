@@ -54,4 +54,9 @@ export class AuthService {
     return jwt_decode(token);
   }
 
+  getRole(): string {
+    let token = this.getDecodedToken(String(localStorage.getItem('token')));
+    return token.role;
+  }
+
 }

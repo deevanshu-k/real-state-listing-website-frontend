@@ -7,6 +7,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { FindRoomsComponent } from './pages/find-rooms/find-rooms.component';
+import { RoleGuard } from './role.guard';
 
 const routes: Routes = [
   {
@@ -21,7 +22,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: "panel", children: [
+    path: "panel",data: {roles:["LANDLORD"]},canActivate:[RoleGuard], children: [
       { path: "landlord", loadChildren: () => import("./panels/landlord/landlord.module").then(m => m.LandlordModule) }
     ]
   }
