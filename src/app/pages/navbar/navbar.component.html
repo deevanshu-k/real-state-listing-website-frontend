@@ -21,7 +21,9 @@
     </div>
     <div class="action flex-fill d-flex flex-row-reverse">
         <span style="width: 50px;"></span>
-        <button class="sign-in" routerLink="/login">Sign In</button>
+        <button class="sign-in ms-2" *ngIf="isUserLoggedIn" (click)="logout()">LogOut</button>
+        <button class="sign-in" *ngIf="isUserLoggedIn">{{planType}}</button>
+        <button class="sign-in" *ngIf="!isUserLoggedIn" routerLink="/login">Sign In</button>
     </div>
 </div>
 <div class="offcanvas offcanvas-start sidenav" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">

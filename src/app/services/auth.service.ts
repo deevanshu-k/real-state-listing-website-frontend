@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import jwt_decode from 'jwt-decode';
@@ -9,6 +9,7 @@ import { LoginSuccessData } from '../interfaces/login-success-data';
   providedIn: 'root'
 })
 export class AuthService {
+  isLogin:Subject<boolean> = new Subject();
 
   constructor(private http:HttpClient) { }
 
@@ -28,11 +29,13 @@ export class AuthService {
   setUserLogin(loginedData:LoginSuccessData){
     localStorage.setItem("token",loginedData.data.jwtToken);
     localStorage.setItem("role",loginedData.data.role);
+    this.isLogin.next(true);
   }
 
   removeUserLogin(){
     localStorage.removeItem("token");
     localStorage.removeItem("role");
+    this.isLogin.next(false);
   }
 
   isTokenExpired(): boolean {
