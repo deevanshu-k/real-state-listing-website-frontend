@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class RegisterComponent {
   account_type: string = "";
+  verify_otp: boolean = false;
+  email:string = "xyz@gmail.com";
+
+  onInputChange(otp:string){
+    console.log(otp);
+  }
 }

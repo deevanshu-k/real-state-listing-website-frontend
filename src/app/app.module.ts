@@ -16,6 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { NgOtpInputModule } from  'ng-otp-input';
+
 
 import { FindRoomsComponent } from './pages/find-rooms/find-rooms.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -42,7 +44,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
 
     MatMenuModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    NgOtpInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

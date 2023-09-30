@@ -230,6 +230,64 @@
     line-height: normal;
 }
 
+/* OPT Verification  */
+.otp_image img {
+    width: 120px;
+    margin: 20px;
+}
+
+.otp_image h4 {
+    color: #212121;
+    font-family: Montserrat;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.otp_image h5 {
+    color: #3A3A3A;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 11.962px;
+}
+
+.otp_image h5 span {
+    color: #3A3A3A;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 11.962px;
+}
+
+.otp_image h6 {
+    color: #B9B9B9;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 11.962px;
+}
+
+.otp_image h6 span {
+    color: #1D3BFF;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 11.962px;
+}
+
+.otp_image h6 span:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 /* Media Query */
 @media screen and (max-width: 860px) {
     .register-container .cover {
