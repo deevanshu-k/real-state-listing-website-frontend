@@ -237,6 +237,10 @@
 }
 
 /* OPT Verification  */
+/* ::ng-deep .otp-input-custom-style {
+    width: 35px !important;
+    height: 35px !important;
+} */
 .otp_image img {
     width: 120px;
     margin: 20px;

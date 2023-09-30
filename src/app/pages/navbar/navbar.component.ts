@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class NavbarComponent implements OnInit {
   isUserLoggedIn: boolean = false;
   planType: "FREETENANT" | "FREELANDLORD" | "PRIEMUMTENANT" | "" = "";
+  name:string = "Welcome !"
 
   constructor(private _authService: AuthService) {
     _authService.isLogin.subscribe(d => {
@@ -16,6 +17,7 @@ export class NavbarComponent implements OnInit {
       if (d) {
         let decodedToken = _authService.getDecodedToken(String(localStorage.getItem("token")));
         this.planType = decodedToken.subscription_plan;
+        this.name = decodedToken.username;
       }
       else {
         this.planType = "";
