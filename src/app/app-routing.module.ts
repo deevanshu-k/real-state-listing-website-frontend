@@ -18,7 +18,7 @@ const routes: Routes = [
       { path: "aboutus", component: AboutUsComponent },
       { path: "findrooms", component: FindRoomsComponent },
       { path: "contactus", component: ContactUsComponent },
-      { path: "plans", component: PricingPlanComponent },
+      { path: "plans",data:{roles:["TENANT","LANDLORD"]},canActivate:[RoleGuard], component: PricingPlanComponent },
       { path: "login", component: LoginComponent},
       { path: "register", component: RegisterComponent}
     ]
