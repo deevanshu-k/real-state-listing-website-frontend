@@ -32,14 +32,6 @@
     color: #FFF;
 }
 
-.card .btn-buy-plan:active {
-    padding-top: 7px;
-    padding-bottom: 7px;
-    color: #5D5FEF;
-    border: 1px solid #5D5FEF;
-    background-color: #FFF;
-}
-
 .card .btn-activated-plan {
     width: 200px;
     padding: 8px;
