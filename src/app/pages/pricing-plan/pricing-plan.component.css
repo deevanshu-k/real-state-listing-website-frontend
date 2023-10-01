@@ -1,0 +1,100 @@
+.main {
+    height: 100vh;
+    overflow-y: scroll;
+    padding-top: 62px
+}
+
+.main h1 {
+    color: #19FFE3;
+    text-align: center;
+    font-family: var(--tertiory-font);
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 82.8%;
+}
+
+.card {
+    width: 250px;
+    border: 0px;
+    padding-top: 15px;
+    border-radius: 15px;
+    background: #FFF;
+    box-shadow: 0px 4px 130px 0px rgba(150, 163, 181, 0.30);
+}
+
+.card .btn-buy-plan {
+    width: 200px;
+    padding: 8px;
+    border: 0px;
+    background: #5D5FEF;
+
+    color: #FFF;
+}
+
+.card .btn-buy-plan:active {
+    padding-top: 7px;
+    padding-bottom: 7px;
+    color: #5D5FEF;
+    border: 1px solid #5D5FEF;
+    background-color: #FFF;
+}
+
+.card .btn-activated-plan {
+    width: 200px;
+    padding: 8px;
+    border: 1px solid #F48300;
+    background: #FFF;
+
+    color: #1F1634;
+}
+
+.card .action {
+    margin-bottom: 30px;
+}
+
+.card .plan-rules {
+    padding: 25px;
+    border-top: 1px solid #F5F5F5;
+}
+
+.card .plan-rules .rule {
+    padding-bottom: 8px;
+}
+
+.card .plan-rules p {
+    margin-bottom: 0px;
+}
+
+.card .starting-at {
+    color: #333;
+    padding: 6px;
+    margin-bottom: 0px;
+    text-align: center;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.card .topic {
+    height: 40px;
+    color: #212121;
+    font-family: Inter;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 180%;
+}
+
+.card .price {
+    color: #333;
+    margin-bottom: 6px;
+    text-align: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.card .plan-rules .rule span:nth-child(1) {
+    margin-right: 8px;
+}

@@ -21,6 +21,7 @@ import { NgOtpInputModule } from  'ng-otp-input';
 
 import { FindRoomsComponent } from './pages/find-rooms/find-rooms.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PricingPlanComponent } from './pages/pricing-plan/pricing-plan.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RegisterComponent,
     ContactUsComponent,
     FooterComponent,
-    FindRoomsComponent
+    FindRoomsComponent,
+    PricingPlanComponent
   ],
   imports: [
     BrowserModule,

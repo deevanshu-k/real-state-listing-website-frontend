@@ -8,6 +8,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { FindRoomsComponent } from './pages/find-rooms/find-rooms.component';
 import { RoleGuard } from './role.guard';
+import { PricingPlanComponent } from './pages/pricing-plan/pricing-plan.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,7 @@ const routes: Routes = [
       { path: "aboutus", component: AboutUsComponent },
       { path: "findrooms", component: FindRoomsComponent },
       { path: "contactus", component: ContactUsComponent },
+      { path: "plans", component: PricingPlanComponent },
       { path: "login", component: LoginComponent},
       { path: "register", component: RegisterComponent}
     ]
