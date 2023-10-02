@@ -32,7 +32,10 @@
         </button>
         <mat-menu #userMenu="matMenu">
             <button>Profile</button>
-            <button routerLink="/plans" ><span>Plan</span><span>FREE</span></button>
+            <button routerLink="/plans" >
+                <span>Plan</span>
+                <span class="px-1" *ngIf="planType" >{{(planType == 'FREETENANT' || planType == 'FREELANDLORD')?'FREE':(planType == 'STANDARDLANDLORD')?'STANDARD':(planType == 'PREMIUMTENANT' || planType == 'PREMIUMLANDLORD')?'PREMIUM':''}}</span>
+            </button>
             <button (click)="logout()">
                 <span>Log Out</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"

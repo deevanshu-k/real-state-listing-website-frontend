@@ -15,7 +15,7 @@
 }
 
 .card {
-    width: 250px;
+    width: 280px;
     border: 0px;
     padding-top: 15px;
     border-radius: 15px;
@@ -28,7 +28,6 @@
     padding: 8px;
     border: 0px;
     background: #5D5FEF;
-
     color: #FFF;
 }
 
@@ -37,8 +36,11 @@
     padding: 8px;
     border: 1px solid #F48300;
     background: #FFF;
-
     color: #1F1634;
+}
+
+.card .btn-activated-plan:hover {
+    cursor: not-allowed;
 }
 
 .card .action {

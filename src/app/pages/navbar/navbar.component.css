@@ -63,12 +63,12 @@
 }
 
 ::ng-deep .mat-mdc-menu-panel {
-    width: 150px !important;
+    width: 180px !important;
 }
 
 ::ng-deep .mat-mdc-menu-panel button:nth-child(2) span:nth-child(2) {
     background-color: #FFCC19;
-    width: 39px;
+    /* width: 39px; */
     height: 16px;
 
     color: #FFF;

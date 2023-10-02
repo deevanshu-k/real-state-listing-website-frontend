@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -8,10 +9,13 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class NavbarComponent implements OnInit {
   isUserLoggedIn: boolean = false;
-  planType: "FREETENANT" | "FREELANDLORD" | "PRIEMUMTENANT" | "" = "";
-  name:string = "Welcome !"
+  planType: "FREETENANT"| "PREMIUMTENANT"  | "FREELANDLORD" | "STANDARDLANDLORD" | "PREMIUMLANDLORD" | "" = "";
+  name:string = "Welcome !";
 
-  constructor(private _authService: AuthService) {
+  constructor(
+    private _authService: AuthService,
+    private router: Router
+    ) {
     _authService.isLogin.subscribe(d => {
       this.isUserLoggedIn = d;
       if (d) {
@@ -33,5 +37,6 @@ export class NavbarComponent implements OnInit {
 
   logout(): void {
     this._authService.removeUserLogin();
+    this.router.navigate(["/login"]);
   }
 }
