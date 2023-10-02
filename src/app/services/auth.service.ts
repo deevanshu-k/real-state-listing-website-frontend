@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import jwt_decode from 'jwt-decode';
 import { Token } from '../interfaces/token';
 import { LoginSuccessData } from '../interfaces/login-success-data';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
@@ -14,13 +15,13 @@ export class AuthService {
   constructor(private http:HttpClient) { }
 
   tenantLogin(email:string,password:string):Observable<LoginSuccessData>{
-    return this.http.post<LoginSuccessData>("http://127.0.0.1:3000/api/login/tenant",{
+    return this.http.post<LoginSuccessData>(environment.END_POINT+"/login/tenant",{
       email,
       password
     });
   }
   landlordLogin(email:string,password:string):Observable<LoginSuccessData>{
-    return this.http.post<LoginSuccessData>("http://127.0.0.1:3000/api/login/landlord",{
+    return this.http.post<LoginSuccessData>(environment.END_POINT+"/login/landlord",{
       email,
       password
     });
