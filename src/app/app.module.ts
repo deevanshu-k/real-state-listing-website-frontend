@@ -22,6 +22,7 @@ import { NgOtpInputModule } from  'ng-otp-input';
 import { FindRoomsComponent } from './pages/find-rooms/find-rooms.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PricingPlanComponent } from './pages/pricing-plan/pricing-plan.component';
+import { GetInTouchButtonFooterComponent } from './pages/components/get-in-touch-button-footer/get-in-touch-button-footer.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { PricingPlanComponent } from './pages/pricing-plan/pricing-plan.componen
     ContactUsComponent,
     FooterComponent,
     FindRoomsComponent,
-    PricingPlanComponent
+    PricingPlanComponent,
+    GetInTouchButtonFooterComponent
   ],
   imports: [
     BrowserModule,

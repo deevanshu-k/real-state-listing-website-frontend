@@ -1,0 +1,112 @@
+.main {
+    background-color: #FFF;
+    padding-left: 70px;
+    padding-right: 70px;
+}
+
+.get-in-touch-footer {
+    border-radius: 10px;
+    background: #177CFA;
+}
+
+/* Space + Bag Img  */
+.get-in-touch-footer .space {
+    width: 250px;
+    position: relative;
+}
+
+.get-in-touch-footer .space img {
+    position: absolute;
+    bottom: 0px;
+}
+
+/* Text details  */
+.get-in-touch-footer .texts h4 {
+    color: #FFF;
+    font-family: Inter;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.get-in-touch-footer .texts h6 {
+    color: #FFF;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+/* Action  */
+.get-in-touch-footer .action button {
+    border: 0px;
+    width: 123px !important;
+    border-radius: 4px;
+    background: #FFF;
+    color: #1979FA;
+    padding-left: 18px;
+    padding-right: 18px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    font-weight: 500;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.10);
+}
+
+.get-in-touch-footer .action button:active {
+    box-shadow: none !important;
+    border: 2px solid #FFF;
+    background-color: #1979FA;
+    color: #FFF;
+}
+
+/* Media Query  */
+@media screen and (max-width:990px) {
+    .get-in-touch-footer {
+        flex-direction: column !important;
+    }
+
+    .get-in-touch-footer .action {
+        justify-content: start !important;
+    }
+
+    .get-in-touch-footer .texts {
+        z-index: 999;
+    }
+
+    .get-in-touch-footer .space {
+        width: 100% !important;
+        z-index: 0;
+    }
+
+    .get-in-touch-footer .space img {
+        bottom: -100px;
+        right: 0px !important;
+    }
+}
+
+@media screen and (max-width:760px) {
+    .main {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .get-in-touch-footer .space {
+        z-index: 999 !important;
+        height: 80px;
+    }
+
+    .get-in-touch-footer .space img {
+        left: 0px !important;
+        bottom: 0px !important;
+    }
+}
+
+@media screen and (max-width:410px) {
+    .get-in-touch-footer {
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+        padding-bottom: 14px !important;
+    }
+}
