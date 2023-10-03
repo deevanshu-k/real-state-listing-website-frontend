@@ -1,6 +1,14 @@
 <div class="d-flex flex-row nav-bar">
-    <button class="btn btn-primary menu-button" type="button" data-bs-toggle="offcanvas"
-        data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Menu</button>
+    <svg data-bs-toggle="offcanvas" class="menu-button" data-bs-target="#offcanvasWithBothOptions"
+        aria-controls="offcanvasWithBothOptions" width="45px" height="40px" viewBox="0 0 24 24" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+        <g id="SVGRepo_iconCarrier">
+            <path d="M4 6H20M4 12H20M4 18H20" stroke="#ffffff" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round"></path>
+        </g>
+    </svg>
     <div class="logo flex-fill d-flex">
         <span style="width: 70px;"></span>
         <span style="line-height: 38px;">
@@ -32,14 +40,15 @@
         </button>
         <mat-menu #userMenu="matMenu">
             <button>Profile</button>
-            <button routerLink="/plans" >
+            <button routerLink="/plans">
                 <span>Plan</span>
-                <span class="px-1" *ngIf="planType" >{{(planType == 'FREETENANT' || planType == 'FREELANDLORD')?'FREE':(planType == 'STANDARDLANDLORD')?'STANDARD':(planType == 'PREMIUMTENANT' || planType == 'PREMIUMLANDLORD')?'PREMIUM':''}}</span>
+                <span class="px-1" *ngIf="planType">{{(planType == 'FREETENANT' || planType ==
+                    'FREELANDLORD')?'FREE':(planType == 'STANDARDLANDLORD')?'STANDARD':(planType == 'PREMIUMTENANT' ||
+                    planType == 'PREMIUMLANDLORD')?'PREMIUM':''}}</span>
             </button>
             <button (click)="logout()">
                 <span>Log Out</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
-                    viewBox="0 0 25 25" fill="none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
                     <path fill-rule="evenodd" clip-rule="evenodd"
                         d="M17.0107 17.3444L20.5751 13.1855C20.7453 12.9913 20.8324 12.7462 20.8325 12.4998C20.8326 12.3312 20.792 12.162 20.7094 12.0081C20.6727 11.9395 20.6279 11.8743 20.5751 11.8141L17.0107 7.6552C16.6364 7.21839 15.9788 7.16776 15.5419 7.54214C15.1051 7.91651 15.0545 8.57411 15.4289 9.01093L17.5262 11.4581L9.45885 11.4581C8.88355 11.4581 8.41718 11.9244 8.41718 12.4997C8.41718 13.075 8.88355 13.5414 9.45885 13.5414L17.5263 13.5414L15.4289 15.9887C15.0545 16.4255 15.1051 17.0831 15.5419 17.4575C15.9788 17.8318 16.6364 17.7812 17.0107 17.3444ZM10.4158 6.24972C10.9911 6.24972 11.4575 6.71609 11.4575 7.29138L11.4575 8.85388C11.4575 9.42918 11.9239 9.89555 12.4992 9.89555C13.0745 9.89555 13.5409 9.42918 13.5409 8.85388L13.5409 7.29138C13.5409 5.56549 12.1417 4.16638 10.4158 4.16638L7.29085 4.16638C5.56496 4.16638 4.16585 5.56549 4.16585 7.29138L4.16585 17.7081C4.16585 19.4339 5.56496 20.8331 7.29085 20.8331L10.4158 20.8331C12.1417 20.8331 13.5408 19.4339 13.5409 17.7081L13.5409 16.1456C13.5409 15.5703 13.0745 15.1039 12.4992 15.1039C11.9239 15.1039 11.4575 15.5703 11.4575 16.1456L11.4575 17.7081C11.4575 18.2833 10.9911 18.7497 10.4158 18.7497L7.29085 18.7497C6.71555 18.7497 6.24918 18.2833 6.24918 17.7081L6.24918 7.29138C6.24918 6.71609 6.71555 6.24972 7.29085 6.24972L10.4158 6.24972Z"
                         fill="#A9A9A9" />

@@ -108,11 +108,28 @@
         display: block !important;
     }
 
+    .nav-bar {
+        padding-left: 50px;
+    }
+
     .links {
+        display: none !important;
+    }
+
+    .logo {
         display: none !important;
     }
 
     .logo span:nth-child(1) {
         display: none !important;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .nav-bar .action span:nth-child(1){
+        width: 12px !important;
+    }
+    .nav-bar {
+        padding-left: 12px;
     }
 }
