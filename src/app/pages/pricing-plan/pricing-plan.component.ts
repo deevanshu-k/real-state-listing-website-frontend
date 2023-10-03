@@ -17,8 +17,13 @@ interface paymentDone {
   styleUrls: ['./pricing-plan.component.css']
 })
 export class PricingPlanComponent implements OnInit {
-  userType:string = "";
-  activePlan:string = "";
+  submitBtnIsLoading: {
+    _1: Boolean,
+    _2: Boolean,
+    _3: Boolean
+  } = { _1: false, _2: false, _3: false };
+  userType: string = "";
+  activePlan: string = "";
   constructor(
     private winRef: WindowRefService,
     private _paymentService: PaymentService,
@@ -35,9 +40,9 @@ export class PricingPlanComponent implements OnInit {
 
   getPlan(planType: string) {
     // If token expired
-    if(this._authService.isTokenExpired()){
+    if (this._authService.isTokenExpired()) {
       this._authService.removeUserLogin();
-      this._snackBarService.openSnackBar("Your section expired ,login again!","OK","center","bottom");
+      this._snackBarService.openSnackBar("Your section expired ,login again!", "OK", "center", "bottom");
       this.router.navigate(["/login"]);
     }
     let tokenData = this._authService.getDecodedToken(String(localStorage.getItem('token')));
@@ -60,30 +65,48 @@ export class PricingPlanComponent implements OnInit {
         };
         options.handler =
           (res: paymentDone, error: any) => {
-            if(res){
+            if (res) {
               this.snackBarMessage("Payment successful, login again!");
               this._authService.removeUserLogin();
               this.router.navigate(["/login"]);
             }
-            if(error){
+            if (error) {
+              this.toggleSubmitBtnIsLoading(0);
               this.snackBarMessage("payment failed !");
             }
           }
-        options.modal.ondismiss = () => { 
-          this.snackBarMessage("transaction cancelled !"); 
+        options.modal.ondismiss = () => {
+          this.toggleSubmitBtnIsLoading(0);
+          this.snackBarMessage("transaction cancelled !");
         }
         const rzp = new this.winRef.nativeWindow.Razorpay(options);
         rzp.open();
       },
       error: (error) => {
+        this.toggleSubmitBtnIsLoading(0);
         this.snackBarMessage(error.error.message);
       }
     });
   }
 
-  snackBarMessage(message:string){
+  snackBarMessage(message: string) {
     alert(message);
     // this._snackBarService.openSnackBar(message, "OK", "center", "bottom", 3000);
+  }
+
+  toggleSubmitBtnIsLoading(i:1|2|3|0){
+    this.submitBtnIsLoading._1 = false;
+    this.submitBtnIsLoading._2 = false;
+    this.submitBtnIsLoading._3 = false;
+    if(i == 1){
+      this.submitBtnIsLoading._1 = true;
+    }
+    else if( i == 2){
+      this.submitBtnIsLoading._2 = true;
+    }
+    else if( i == 3) {
+      this.submitBtnIsLoading._3 = true;
+    }
   }
 
 }
