@@ -60,10 +60,26 @@
 <div class="offcanvas offcanvas-start sidenav" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
     aria-labelledby="offcanvasWithBothOptionsLabel">
     <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5>
+        <div class="logo offcanvas-title flex-fill d-flex">
+            <span style="width: 70px;"></span>
+            <span style="line-height: 38px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="27" height="12" viewBox="0 0 27 12" fill="none">
+                    <path
+                        d="M22.6667 12H26.6667L13.3333 0L0 12H4L13.3333 3.58667L22.6667 12ZM6.66667 2.41333V0H2.66667V6L6.66667 2.41333Z"
+                        fill="white" />
+                </svg>
+                Rent Qube</span>
+        </div>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-        <p>Try scrolling the rest of the page to see this option in action.</p>
+        <div class="links flex-fill flex-column d-flex align-items-center justify-content-center">
+            <span class="link" data-bs-dismiss="offcanvas" routerLink="/home">Home</span>
+            <span class="link" data-bs-dismiss="offcanvas" routerLink="/findrooms">Find Rooms</span>
+            <span class="link" data-bs-dismiss="offcanvas">Features</span>
+            <span class="link" data-bs-dismiss="offcanvas" *ngIf="planType.includes('LANDLORD')" routerLink="/panel/landlord">List Property</span>
+            <span class="link" data-bs-dismiss="offcanvas" routerLink="/aboutus">About Us</span>
+            <span class="link" data-bs-dismiss="offcanvas" routerLink="/contactus">Contact Us</span>
+        </div>
     </div>
 </div>

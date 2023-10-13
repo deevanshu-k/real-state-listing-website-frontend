@@ -12,17 +12,19 @@ import { RegisterComponent } from './pages/register/register.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { FooterComponent } from './pages/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
-import {MatMenuModule} from '@angular/material/menu';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
-import { NgOtpInputModule } from  'ng-otp-input';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { NgOtpInputModule } from 'ng-otp-input';
 
 
 import { FindRoomsComponent } from './pages/find-rooms/find-rooms.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PricingPlanComponent } from './pages/pricing-plan/pricing-plan.component';
 import { GetInTouchButtonFooterComponent } from './pages/components/get-in-touch-button-footer/get-in-touch-button-footer.component';
+import { environment } from 'src/environments/environment.development';
+import { TokenInterceptor } from './interceptors/token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,15 @@ import { GetInTouchButtonFooterComponent } from './pages/components/get-in-touch
     MatSnackBarModule,
     NgOtpInputModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor() {
+    if (!environment.production) {
+      console.log('APP IS IN DEVELOPMENT!');
+    }
+  }
+}

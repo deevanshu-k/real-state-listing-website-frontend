@@ -14,6 +14,10 @@ export class AuthService {
 
   constructor(private http:HttpClient) { }
 
+  getAuthToken():string {
+    return String(localStorage.getItem('token'));
+  }
+
   tenantLogin(email:string,password:string):Observable<LoginSuccessData>{
     return this.http.post<LoginSuccessData>(environment.END_POINT+"/login/tenant",{
       email,

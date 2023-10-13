@@ -9,7 +9,7 @@
 
 .register-container {
     width: 900px;
-    height: 550px;
+    min-height: 550px;
 
     border-radius: 35px;
     background: #FFF;
@@ -218,5 +218,18 @@
     .register-container .register {
         width: 100%;
         z-index: 999;
+    }
+}
+
+@media screen and (max-width: 455px) {
+    .main-login-container {
+        padding: 10px !important;
+        padding-top: 25px !important;
+        padding-bottom: 25px !important;
+    }
+
+    .register-container .register :is(.container,.form,.action) {
+         padding-left: 18px !important;
+         padding-right: 18px !important;
     }
 }
