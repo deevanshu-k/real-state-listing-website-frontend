@@ -1,0 +1,40 @@
+/* Content Body : main  */
+.main {
+    margin-top: 55px;
+}
+
+/* Top Header  */
+.top-header {
+    background: #F8F8F8;
+}
+.top-header div {
+    line-height: 55px;
+}
+.top-header div:nth-child(1) svg {
+    margin-bottom: 8px;
+    margin-right: 8px;
+}
+.top-header div:nth-child(1) span {
+    color: #1979FA;
+    font-family: var(--primary-font);
+    font-size: 22px;
+    font-style: italic;
+    font-weight: 700;
+    line-height: normal;
+}
+
+/* Bottom Menu  */
+.bottom-menu {
+    height: 60px;
+    border-radius: 20px 20px 0px 0px;
+    background: linear-gradient(90deg, rgba(49, 97, 246, 0.95) 0%, rgba(3, 145, 253, 0.95) 100%);
+}
+
+.bottom-menu>div>span {
+    color: #FFF;
+    font-family: var(--secondry-font);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}

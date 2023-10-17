@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { LandlordComponent } from './landlord.component';
 
 const routes: Routes = [
-  { path: "", redirectTo: "dashboard", pathMatch: 'prefix' },
-  { path: "dashboard", component: DashboardComponent }
+  { path: "", component: LandlordComponent },
 ];
 
 @NgModule({

@@ -30,7 +30,7 @@ export class LoginComponent {
         this.router.navigate(['/findrooms']);
       }
       else {
-        this.router.navigate(['/panel/landlord']);
+        this.router.navigate(['/panel/landlord/']);
       }
     }
   }

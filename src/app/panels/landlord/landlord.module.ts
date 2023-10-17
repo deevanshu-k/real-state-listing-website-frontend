@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { LandlordRoutingModule } from './landlord-routing.module';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { LandlordComponent } from './landlord.component';
 
 
 @NgModule({
   declarations: [
-    DashboardComponent
+    LandlordComponent
   ],
   imports: [
     CommonModule,
