@@ -3,6 +3,11 @@
     margin-top: 55px;
 }
 
+/* notifier  */
+.notifier span .badge {
+    background-color: #1979FA;
+}
+
 /* Top Header  */
 .top-header {
     background: #F8F8F8;
@@ -12,14 +17,14 @@
 }
 .top-header div:nth-child(1) svg {
     margin-bottom: 8px;
-    margin-right: 8px;
+    margin-right: 20px;
 }
 .top-header div:nth-child(1) span {
     color: #1979FA;
     font-family: var(--primary-font);
     font-size: 22px;
     font-style: italic;
-    font-weight: 700;
+    font-weight: bolder;
     line-height: normal;
 }
 
@@ -30,11 +35,32 @@
     background: linear-gradient(90deg, rgba(49, 97, 246, 0.95) 0%, rgba(3, 145, 253, 0.95) 100%);
 }
 
-.bottom-menu>div>span {
+.bottom-menu div {
+    width: 33.3%;
+    height: 100%;
+    border-radius: 20px 20px 0px 0px;
+}
+
+.bottom-menu div span {
     color: #FFF;
     font-family: var(--secondry-font);
     font-size: 12px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+}
+
+.bottom-menu .activemenu {
+    border-top: 4px solid #1979FA;
+    border-left: 4px solid #1979FA;
+    border-right: 4px solid #1979FA;
+    background-color: #FFF;
+}
+
+.bottom-menu .activemenu span {
+    color: #1979FA
+}
+
+.bottom-menu .activemenu svg path {
+    stroke: #1979FA;
 }
