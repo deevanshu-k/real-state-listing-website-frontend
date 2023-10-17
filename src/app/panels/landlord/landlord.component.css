@@ -1,6 +1,7 @@
 /* Content Body : main  */
 .main {
     margin-top: 55px;
+    padding-bottom: 60px;
 }
 
 /* notifier  */
@@ -12,13 +13,16 @@
 .top-header {
     background: #F8F8F8;
 }
+
 .top-header div {
     line-height: 55px;
 }
+
 .top-header div:nth-child(1) svg {
     margin-bottom: 8px;
     margin-right: 20px;
 }
+
 .top-header div:nth-child(1) span {
     color: #1979FA;
     font-family: var(--primary-font);
@@ -38,11 +42,12 @@
 .bottom-menu div {
     width: 33.3%;
     height: 100%;
+    cursor: pointer;
     border-radius: 20px 20px 0px 0px;
 }
 
 .bottom-menu div span {
-    color: #FFF;
+    color: #8FD0FF;
     font-family: var(--secondry-font);
     font-size: 12px;
     font-style: normal;
@@ -50,17 +55,60 @@
     line-height: normal;
 }
 
-.bottom-menu .activemenu {
-    border-top: 4px solid #1979FA;
-    border-left: 4px solid #1979FA;
-    border-right: 4px solid #1979FA;
-    background-color: #FFF;
+.bottom-menu div svg path {
+    stroke: #8FD0FF;
 }
 
 .bottom-menu .activemenu span {
-    color: #1979FA
+    color: #FFF
 }
 
 .bottom-menu .activemenu svg path {
-    stroke: #1979FA;
+    stroke: #FFF;
+}
+
+
+@media screen and (min-width:650px) {
+    .top-header {
+        height: 70px;
+    }
+    .bottom-menu {
+        top: 70px !important;
+        width: 200px !important;
+        padding: 15px;
+        height: 100vh;
+        flex-direction: column !important;
+        border-radius: 0px !important;
+        justify-content: start !important;
+    }
+
+    .bottom-menu div {
+        width: 100%;
+        height: 80px;
+        border-radius: 20px;
+        flex-direction: row !important;
+        /* justify-content: center; */
+    }
+
+    .bottom-menu div svg {
+        margin-left: 16px;
+        margin-right: 16px;
+    }
+
+    .bottom-menu div span {
+        font-size: 18px ;
+        font-family: Poppins;
+    }
+
+    .main {
+        width: calc(100vw - 200px);
+        position: fixed;
+        left: 200px;
+        margin-top: 70px;
+        height: calc(100% - 70px);
+        overflow-y: scroll;
+        padding-bottom: 60px;
+    }
+
+
 }
