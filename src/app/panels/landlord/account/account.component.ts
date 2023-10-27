@@ -12,7 +12,7 @@ import { SnackbarService } from 'src/app/services/snackbar.service';
 })
 export class AccountComponent {
   output?: NgxCroppedEvent;
-  imgUrl: string = 'https://placehold.co/100x100?text=No \nProfile';
+  imgUrl: string = '/assets/no_profile_image.svg';
 
   constructor(
     private authService: AuthService,
