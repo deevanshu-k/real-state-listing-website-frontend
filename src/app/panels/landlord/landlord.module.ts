@@ -8,6 +8,10 @@ import { AccountComponent } from './account/account.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 import {MatDialogModule} from '@angular/material/dialog';
+import { PasswordChangeComponent } from './account/components/password-change/password-change.component';
+import { AccountDetailsComponent } from './account/components/account-details/account-details.component';
+import { PlanDetailsComponent } from './account/components/plan-details/plan-details.component';
+import { DocumentsComponent } from './account/components/documents/documents.component';
 
 
 @NgModule({
@@ -15,7 +19,11 @@ import {MatDialogModule} from '@angular/material/dialog';
     LandlordComponent,
     PropertiesComponent,
     AccountComponent,
-    DashboardComponent
+    DashboardComponent,
+    PasswordChangeComponent,
+    AccountDetailsComponent,
+    PlanDetailsComponent,
+    DocumentsComponent
 ],
   imports: [
     CommonModule,

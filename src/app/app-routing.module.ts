@@ -27,7 +27,8 @@ const routes: Routes = [
     path: "panel",data: {roles:["LANDLORD"]},canActivate:[RoleGuard], children: [
       { path: "landlord", loadChildren: () => import("./panels/landlord/landlord.module").then(m => m.LandlordModule) }
     ]
-  }
+  },
+  { path:"**" , redirectTo: '/home'}
 ];
 
 @NgModule({
