@@ -27,6 +27,7 @@ import { GetInTouchButtonFooterComponent } from './pages/components/get-in-touch
 import { environment } from 'src/environments/environment.development';
 import { TokenInterceptor } from './interceptors/token-interceptor.service';
 import { LogoutComponent } from './services/dialog/logout/logout.component';
+import { NgxPhotoEditorModule } from 'ngx-photo-editor';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { LogoutComponent } from './services/dialog/logout/logout.component';
     MatMenuModule,
     MatSnackBarModule,
     NgOtpInputModule,
-    MatDialogModule
+    MatDialogModule,
+    NgxPhotoEditorModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }

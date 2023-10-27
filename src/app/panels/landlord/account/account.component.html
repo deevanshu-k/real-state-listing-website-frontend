@@ -1,6 +1,14 @@
 <div class="main">
     <div class="header p-4">
-        <img [src]="imgUrl" width="80" height="80" alt="">
+        <span>
+            <img [src]="imgUrl" width="80" height="80" alt="">
+            <input type="file" #profileImageInput name="" accept=".png, .jpg, .jpeg" id="" (change)="ProfileImageChangeHandler($event)" style="display: none;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" (click)="profileImageInput.click()" height="25" viewBox="0 0 17 17" fill="none">
+                <path
+                    d="M14.875 14.875H2.125M14.0817 4.95834L7.79167 11.2129L4.95833 12.0417L5.78708 9.20834L12.0771 2.91834C12.3431 2.63036 12.7126 2.45968 13.1043 2.44374C13.496 2.42781 13.8781 2.56792 14.1667 2.83334C14.3035 2.97694 14.4101 3.14659 14.4801 3.33221C14.5502 3.51782 14.5821 3.71562 14.5742 3.91384C14.5663 4.11206 14.5186 4.30666 14.434 4.48609C14.3494 4.66552 14.2296 4.82612 14.0817 4.95834Z"
+                    stroke="#F8F8F8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </span>
         <div>
             <h4>Deevanshu kushwah</h4>
             <h6>deevanshukushwah80@gmail.com</h6>
