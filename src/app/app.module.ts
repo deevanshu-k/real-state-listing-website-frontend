@@ -17,6 +17,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NgOtpInputModule } from 'ng-otp-input';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 import { FindRoomsComponent } from './pages/find-rooms/find-rooms.component';
@@ -25,6 +26,7 @@ import { PricingPlanComponent } from './pages/pricing-plan/pricing-plan.componen
 import { GetInTouchButtonFooterComponent } from './pages/components/get-in-touch-button-footer/get-in-touch-button-footer.component';
 import { environment } from 'src/environments/environment.development';
 import { TokenInterceptor } from './interceptors/token-interceptor.service';
+import { LogoutComponent } from './services/dialog/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { TokenInterceptor } from './interceptors/token-interceptor.service';
     FooterComponent,
     FindRoomsComponent,
     PricingPlanComponent,
-    GetInTouchButtonFooterComponent
+    GetInTouchButtonFooterComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +54,8 @@ import { TokenInterceptor } from './interceptors/token-interceptor.service';
 
     MatMenuModule,
     MatSnackBarModule,
-    NgOtpInputModule
+    NgOtpInputModule,
+    MatDialogModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }

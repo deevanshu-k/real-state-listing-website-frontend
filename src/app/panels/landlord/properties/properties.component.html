@@ -17,14 +17,14 @@
                 <td>
                     <input type="checkbox" name="" id="">
                 </td>
-                <ng-container *ngIf="property.name.length > 10;then nameWithSlice else nameWithoutSlice"></ng-container>
+                <ng-container *ngIf="property.property_name.length > 10;then nameWithSlice else nameWithoutSlice"></ng-container>
                 <ng-template #nameWithSlice>
-                    <td #nameWithSlice>{{property.name | slice:0:10}}...</td>
+                    <td #nameWithSlice>{{property.property_name | slice:0:10}}...</td>
                 </ng-template>
                 <ng-template #nameWithoutSlice>
-                    <td #nameWithoutSlice>{{property.name}}</td>
+                    <td #nameWithoutSlice>{{property.property_name}}</td>
                 </ng-template>
-                <td>{{property.category}}</td>
+                <td>{{property.property_type}}</td>
                 <td>{{property.price}}</td>
             </tr>
         </tbody>

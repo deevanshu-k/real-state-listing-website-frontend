@@ -7,6 +7,8 @@ import { PropertiesComponent } from './properties/properties.component';
 import { AccountComponent } from './account/account.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 ],
   imports: [
     CommonModule,
-    LandlordRoutingModule
+    LandlordRoutingModule,
+    MatDialogModule
   ]
 })
 export class LandlordModule { }
