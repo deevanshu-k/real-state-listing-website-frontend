@@ -14,6 +14,7 @@ import { PlanDetailsComponent } from './account/components/plan-details/plan-det
 import { DocumentsComponent } from './account/components/documents/documents.component';
 import { AddPropertiesComponent } from './properties/components/add-properties/add-properties.component';
 import { AddPropertyImageComponent } from './properties/components/add-property-image/add-property-image.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -32,7 +33,9 @@ import { AddPropertyImageComponent } from './properties/components/add-property-
   imports: [
     CommonModule,
     LandlordRoutingModule,
-    MatDialogModule
+    MatDialogModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class LandlordModule { }
