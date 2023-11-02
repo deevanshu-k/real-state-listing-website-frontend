@@ -1,0 +1,92 @@
+.back {
+    line-height: 25px;
+}
+
+.back :is(svg, span) {
+    cursor: pointer;
+}
+
+.back span:nth-child(2) {
+    color: var(--Black, #222);
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 25px;
+    padding-left: 6px;
+}
+
+/* body  */
+
+/* .img_container h4 {
+    color: #000;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+} */
+
+.img_container .images {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.img_container .images .card {
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+
+    border-radius: 6px;
+    border: 1px solid #c8c8c8;
+    cursor: pointer;
+    background: #FFF;
+}
+
+.img_container .images .card svg {
+    width: 30px !important;
+    height: 30px !important;
+}
+
+.img_container .images .img {
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    box-shadow: 0px 1px 5px 0px rgba(142, 145, 159, 0.15);
+    cursor: pointer;
+
+    border-radius: 6px;
+    background: #FFF;
+    border: 1px solid #c8c8c8;
+    box-shadow: 0px 1px 5px 0px rgba(142, 145, 159, 0.15);
+
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 200px;
+}
+
+@media screen and (max-width:650px) {
+    .img_container .images .img {
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        margin: 6px !important;
+    }
+
+    .img_container .images .card {
+        width: 100px;
+        height: 100px;
+        margin: 6px !important;
+    }
+
+    .img_container .images .card svg {
+        width: 18px !important;
+        height: 18px !important;
+    }
+}

@@ -13,6 +13,7 @@ import { AccountDetailsComponent } from './account/components/account-details/ac
 import { PlanDetailsComponent } from './account/components/plan-details/plan-details.component';
 import { DocumentsComponent } from './account/components/documents/documents.component';
 import { AddPropertiesComponent } from './properties/components/add-properties/add-properties.component';
+import { AddPropertyImageComponent } from './properties/components/add-property-image/add-property-image.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { AddPropertiesComponent } from './properties/components/add-properties/a
     AccountDetailsComponent,
     PlanDetailsComponent,
     DocumentsComponent,
-    AddPropertiesComponent
+    AddPropertiesComponent,
+    AddPropertyImageComponent
   ],
   imports: [
     CommonModule,

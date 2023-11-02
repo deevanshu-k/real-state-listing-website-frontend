@@ -1,0 +1,37 @@
+<div class="main">
+    <div class="back px-3 py-4">
+        <svg routerLink="/panel/landlord/properties" xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+            viewBox="0 0 23 23" fill="none">
+            <path
+                d="M11.5 20.125C16.2635 20.125 20.125 16.2635 20.125 11.5C20.125 6.73654 16.2635 2.875 11.5 2.875C6.73654 2.875 2.875 6.73654 2.875 11.5C2.875 16.2635 6.73654 20.125 11.5 20.125Z"
+                stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M12.458 8.625L9.58301 11.5L12.458 14.375" stroke="black" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+        </svg>
+        <span routerLink="/panel/landlord/properties">Property Images</span>
+    </div>
+
+    <div class="body p-2 mx-auto">
+        <div class="img_container">
+            <!-- <h4 class="mx-2">Add Image</h4> -->
+            <div class="images">
+                <ng-container *ngFor="let image of images">
+                    <div class="card" *ngIf="image.url">
+                        <img [src]="image.url" class="card-img" alt="...">
+                        <div class="card-img-overlay">
+                            <span class="badge w-100 text-bg-primary position-absolute bottom-0 start-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 17 17" fill="none">
+                                    <path
+                                        d="M14.875 14.875H2.125M14.0817 4.95834L7.79167 11.2129L4.95833 12.0417L5.78708 9.20834L12.0771 2.91834C12.3431 2.63036 12.7126 2.45968 13.1043 2.44374C13.496 2.42781 13.8781 2.56792 14.1667 2.83334C14.3035 2.97694 14.4101 3.14659 14.4801 3.33221C14.5502 3.51782 14.5821 3.71562 14.5742 3.91384C14.5663 4.11206 14.5186 4.30666 14.434 4.48609C14.3494 4.66552 14.2296 4.82612 14.0817 4.95834Z"
+                                        stroke="#F8F8F8" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </ng-container>
+                <div class="img">+</div>
+                
+            </div>
+        </div>
+    </div>
+</div>

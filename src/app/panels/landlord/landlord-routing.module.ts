@@ -9,6 +9,7 @@ import { DocumentsComponent } from './account/components/documents/documents.com
 import { PasswordChangeComponent } from './account/components/password-change/password-change.component';
 import { PlanDetailsComponent } from './account/components/plan-details/plan-details.component';
 import { AddPropertiesComponent } from './properties/components/add-properties/add-properties.component';
+import { AddPropertyImageComponent } from './properties/components/add-property-image/add-property-image.component';
 
 const routes: Routes = [
   {
@@ -18,7 +19,8 @@ const routes: Routes = [
       {
         path: "properties", children: [
           { path: "", component: PropertiesComponent },
-          { path: "add", component: AddPropertiesComponent }
+          { path: "add", component: AddPropertiesComponent },
+          { path: "addimages/:propertyId", component: AddPropertyImageComponent }
         ]
       },
       {
