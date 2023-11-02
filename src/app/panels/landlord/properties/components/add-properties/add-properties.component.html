@@ -73,11 +73,9 @@
         <div class="row">
             <div class="col">
                 <label for="state">State</label>
-                <select class="form-select p-1" name="state">
+                <select class="form-select p-1" #stateselector (change)="stateChanged(stateselector.value)" name="state">
                     <option selected>Select State</option>
-                    <option value="HOUSE">House</option>
-                    <option value="FLAT">Flat</option>
-                    <option value="PLOT">Plot</option>
+                    <option *ngFor="let state of states" [value]="state.code">{{ state.name }}</option>
                 </select>
             </div>
         </div>
@@ -87,9 +85,7 @@
                 <label for="district">District</label>
                 <select class="form-select p-1" name="district">
                     <option selected>Select District</option>
-                    <option value="HOUSE">House</option>
-                    <option value="FLAT">Flat</option>
-                    <option value="PLOT">Plot</option>
+                    <option *ngFor="let district of districts" [value]="district">{{ district }}</option>
                 </select>
             </div>
             <div class="col">
