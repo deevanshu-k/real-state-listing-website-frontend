@@ -41,6 +41,13 @@
     margin-bottom: 4px;
 }
 
+.body input:focus,
+.body select:focus, 
+.body textarea:focus 
+{
+    border-color: #000;
+}
+
 .body input[type='text'],
 .body input[type='number'],
 .body select,

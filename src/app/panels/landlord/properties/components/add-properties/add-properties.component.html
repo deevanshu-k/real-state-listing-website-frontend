@@ -14,19 +14,19 @@
     <div class="body p-2 mx-auto" [formGroup]="propertyformgroup">
         <div class="row">
             <div class="col">
-                <label for="property_name">Property Name</label>
+                <label for="property_name">Property Name *</label>
                 <input type="text" name="property_name" formControlName="property_name" id="">
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <label for="property_type">Property Type</label>
+                <label for="property_type">Property Type *</label>
                 <select class="form-select p-1" formControlName="property_type" name="property_type">
                     <option *ngFor="let type of property_type" [value]="type.value">{{ type.key }}</option>
                 </select>
             </div>
             <div class="col">
-                <label for="offer_type">Offer Type</label>
+                <label for="offer_type">Offer Type *</label>
                 <select class="form-select p-1" formControlName="offer_type" name="offer_type" id="">
                     <option *ngFor="let type of offer_type" [value]="type.value">{{ type.key }}</option>
                 </select>
@@ -35,11 +35,11 @@
 
         <div class="row">
             <div class="col">
-                <label for="no_of_rooms">No Of Rooms</label>
+                <label for="no_of_rooms">No Of Rooms *</label>
                 <input type="number" formControlName="no_of_rooms" name="no_of_rooms" id="">
             </div>
             <div class="col">
-                <label for="price">Price</label>
+                <label for="price">Price *</label>
                 <input type="number" formControlName="price" name="price" id="">
             </div>
         </div>
@@ -72,10 +72,9 @@
 
         <div class="row">
             <div class="col">
-                <label for="state">State</label>
-                <select class="form-select p-1" #stateselector
-                    (change)="stateChanged(stateselector.value)" formControlName="state"
-                    name="state">
+                <label for="state">State *</label>
+                <select class="form-select p-1" #stateselector (change)="stateChanged(stateselector.value)"
+                    formControlName="state" name="state">
                     <option *ngFor="let state of states" [value]="state.name">{{ state.name }}</option>
                 </select>
             </div>
@@ -83,13 +82,13 @@
 
         <div class="row">
             <div class="col">
-                <label for="district">District</label>
+                <label for="district">District *</label>
                 <select class="form-select p-1" formControlName="district" name="district">
                     <option *ngFor="let district of districts" [value]="district">{{ district }}</option>
                 </select>
             </div>
             <div class="col">
-                <label for="zip_code">Zip Code</label>
+                <label for="zip_code">Zip Code *</label>
                 <input type="number" formControlName="zipcode" name="zip_code" id="">
             </div>
         </div>
@@ -103,7 +102,10 @@
 
         <div class="row action">
             <div class="col d-flex flex-row-reverse">
-                <button [disabled]="propertyformgroup.invalid" (click)="saveProperty()">Next</button>
+                <button [disabled]="propertyformgroup.invalid" (click)="saveProperty()">
+                    {{ nextbtnloading?'':'next' }}
+                    <span *ngIf="nextbtnloading" class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                </button>
             </div>
         </div>
     </div>
