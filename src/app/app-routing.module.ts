@@ -9,8 +9,10 @@ import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { FindRoomsComponent } from './pages/find-rooms/find-rooms.component';
 import { RoleGuard } from './role.guard';
 import { PricingPlanComponent } from './pages/pricing-plan/pricing-plan.component';
+import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 
 const routes: Routes = [
+  { path: "resetpassword", component: ChangePasswordComponent},
   {
     path: "", component: PagesComponent, children: [
       { path: "", redirectTo: "home", pathMatch: 'prefix' },

@@ -28,6 +28,7 @@ import { environment } from 'src/environments/environment.development';
 import { TokenInterceptor } from './interceptors/token-interceptor.service';
 import { LogoutComponent } from './services/dialog/logout/logout.component';
 import { NgxPhotoEditorModule } from 'ngx-photo-editor';
+import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { NgxPhotoEditorModule } from 'ngx-photo-editor';
     FindRoomsComponent,
     PricingPlanComponent,
     GetInTouchButtonFooterComponent,
-    LogoutComponent
+    LogoutComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,

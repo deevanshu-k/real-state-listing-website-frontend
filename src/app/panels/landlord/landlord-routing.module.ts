@@ -8,13 +8,19 @@ import { AccountDetailsComponent } from './account/components/account-details/ac
 import { DocumentsComponent } from './account/components/documents/documents.component';
 import { PasswordChangeComponent } from './account/components/password-change/password-change.component';
 import { PlanDetailsComponent } from './account/components/plan-details/plan-details.component';
+import { AddPropertiesComponent } from './properties/components/add-properties/add-properties.component';
 
 const routes: Routes = [
   {
     path: "", component: LandlordComponent, children: [
       { path: "", redirectTo: "dashboard", pathMatch: "prefix" },
       { path: "dashboard", component: DashboardComponent },
-      { path: "properties", component: PropertiesComponent },
+      {
+        path: "properties", children: [
+          { path: "", component: PropertiesComponent },
+          { path: "add", component: AddPropertiesComponent }
+        ]
+      },
       {
         path: "account", children: [
           { path: "", component: AccountComponent },
