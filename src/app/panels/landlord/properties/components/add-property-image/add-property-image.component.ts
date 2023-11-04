@@ -22,6 +22,9 @@ export class AddPropertyImageComponent implements OnInit {
   images: Image[] = [];
   output?: NgxCroppedEvent;
 
+  // For Image Update
+  imageId:number = -1;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -36,9 +39,9 @@ export class AddPropertyImageComponent implements OnInit {
       this.propertyId = String(params.get('propertyId'));
       this.landlordServices.getPropertyById(this.propertyId).subscribe({
         next: data => {
+          this.maxId = data.data.images.length;
           this.images = data.data.images.map(d => {
-            this.maxId = Math.max(this.maxId, d.id);
-            return { id: d.id, url: d.img_url }
+            return { id: d.id, url: d.img_url+"?nocache=" + Date.now() }
           })
         },
         error: error => {
@@ -70,14 +73,14 @@ export class AddPropertyImageComponent implements OnInit {
           // If Image Add
           this.images.push({
             id: res.data.id,
-            url: res.data.img_url
+            url: res.data.img_url+"?nocache=" + Date.now()
           });
         }
         else {
           // If Image Update
-          this.images[imageNo-1].url = res.data.img_url;
+          this.images[imageNo-1].url = res.data.img_url+"?nocache=" + Date.now();
         }
-        this.maxId = Math.max(this.maxId, res.data.id);
+        this.maxId = this.images.length;
         this.snackbarService.openSnackBar(res.message, "OK", "end", "bottom", 3000);
       },
       error: (e) => {
