@@ -29,7 +29,10 @@
                         </div>
                     </div>
                 </ng-container>
-                <div class="img">+</div>
+                <div class="img" (click)="PropertyAddImageInput.click()">
+                    <input type="file" #PropertyAddImageInput name="" accept=".png, .jpg, .jpeg" id="" (change)="PropertyImageAddOrUpdateHandler($event,maxId+1)" style="display: none;">
+                    +
+                </div>
                 
             </div>
         </div>

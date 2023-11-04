@@ -11,6 +11,15 @@ export interface UploadProfileImageSuccess {
   }
 }
 
+export interface UploadPropertyImageSuccess {
+  code: number,
+  message: string,
+  data: {
+    id: number,
+    img_url: string
+  }
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -20,5 +29,9 @@ export class UploadService {
 
   updateProfileImage(input: FormData): Observable<UploadProfileImageSuccess> {
     return this.http.post<UploadProfileImageSuccess>(environment.END_POINT + "/upload/profileimage", input);
+  }
+
+  updatePropertyImage(propertyId: string, imageNo: number, input: FormData): Observable<UploadPropertyImageSuccess> {
+    return this.http.post<UploadPropertyImageSuccess>(environment.END_POINT + `/upload/propertyImages?propertyId=${propertyId}&imageNo=${imageNo}`, input)
   }
 }
