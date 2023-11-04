@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { LandlordService } from 'src/app/services/landlord.service';
+import { SnackbarService } from 'src/app/services/snackbar.service';
 
 interface Image {
   id: number,
@@ -11,18 +14,36 @@ interface Image {
   styleUrls: ['./add-property-image.component.css']
 })
 export class AddPropertyImageComponent implements OnInit {
+  propertyId!: string;
+  maxId: number = 1;
   images: Image[] = [];
 
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private landlordServices: LandlordService,
+    private snackBar: SnackbarService
+  ) { }
+
   ngOnInit(): void {
-    this.images = [
-      {
-        id: 23456,
-        url: "https://real-state-dev-storage.s3.ap-south-1.amazonaws.com/ad41428285b6f2b299ed2c8edd64825d?nocache=1698915369440"
-      },
-      {
-        id: 23456,
-        url: "https://placehold.co/600x400"
-      }
-    ];
+    this.route.paramMap.subscribe(params => {
+      this.propertyId = String(params.get('propertyId'));
+      this.landlordServices.getPropertyById(this.propertyId).subscribe({
+        next: data => {
+          this.images = data.data.images.map(d => {
+            this.maxId = Math.max(this.maxId, d.id);
+            return { id: d.id, url: d.img_url }
+          })
+        },
+        error: error => {
+          this.snackBar.openSnackBar(error.error.message, "Ok", "end", "bottom", 3000);
+          this.router.navigate(['/panel/landlord/properties']);
+        }
+      });
+    });
+  }
+
+  updateImage(): void {
+
   }
 }

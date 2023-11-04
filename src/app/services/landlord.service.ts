@@ -41,7 +41,21 @@ export class LandlordService {
     return this.http.get<{ code: number, data: Property[] }>(environment.END_POINT + "/property");
   }
 
-  createProperty(data: CreatePropertyType): Observable<{ code: number, message: string, data: Property }> {
-    return this.http.put<{ code: number, message: string, data: Property }>(environment.END_POINT + "/property", data);
+  getPropertyById(Id: string): Observable<{ code: number, data: Property }> {
+    return this.http.get<{ code: number, data: Property }>(environment.END_POINT + "/property/" + Id);
+  }
+
+  createProperty(data: CreatePropertyType): Observable<{
+    code: number, message: string, data: {
+      id: number,
+      property_name: string
+    }
+  }> {
+    return this.http.put<{
+      code: number, message: string, data: {
+        id: number,
+        property_name: string
+      }
+    }>(environment.END_POINT + "/property", data);
   }
 }

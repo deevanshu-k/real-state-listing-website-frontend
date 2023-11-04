@@ -84,8 +84,8 @@ export class AddPropertiesComponent implements OnInit {
       }
       this.landlordServices.createProperty(data).subscribe({
         next: (d) => {
+          if (!environment.production) console.log(d);
           this._snackbarServices.openSnackBar(d.message, "OK", "end", "bottom", 3000);
-          console.log(d);
           this.router.navigate(['/panel/landlord/properties/addimages/' + d.data.id]);
         },
         error: (error) => {
