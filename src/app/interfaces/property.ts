@@ -1,6 +1,7 @@
 export interface Property {
     id: number,
     property_type: string,
+    offer_type: string,
     property_name: string,
     verification_status: boolean,
     state: string,
