@@ -3,42 +3,7 @@
 </div>
 <div class="properties mx-4">
     <div class="heading">Properties</div>
-    <table class="my-1">
-        <thead>
-            <th>
-                <input type="checkbox" name="" id="">
-            </th>
-            <th>Name</th>
-            <th>Category</th>
-            <th>Price</th>
-        </thead>
-        <tbody>
-            <tr *ngFor="let property of paggedProperties[pageSelected];let i=index">
-                <td>
-                    <input type="checkbox" name="" id="">
-                </td>
-                <ng-container *ngIf="property.property_name.length > 10;then nameWithSlice else nameWithoutSlice"></ng-container>
-                <ng-template #nameWithSlice>
-                    <td #nameWithSlice>{{property.property_name | slice:0:10}}...</td>
-                </ng-template>
-                <ng-template #nameWithoutSlice>
-                    <td #nameWithoutSlice>{{property.property_name}}</td>
-                </ng-template>
-                <td>{{property.property_type}}</td>
-                <td>{{property.price}}</td>
-            </tr>
-        </tbody>
-    </table>
-    <div class="pagination-container d-flex justify-content-center px-3 py-2">
-        <span *ngIf="!pageSelected">No Records</span>
-        <div class="page-custom" *ngIf="pageSelected">
-            <span (click)="previousPage()" class="left">&laquo;</span>
-            <span *ngIf="pageSelected-1">{{pageSelected-1}}</span>
-            <span class="active" *ngIf="pageSelected+1 <= properties.length">{{pageSelected}}</span>
-            <span *ngIf="this.pageSelected < this.paggedProperties.length-1">{{pageSelected+1}}</span>
-            <span (click)="nextPage()" class="right">&raquo;</span>
-        </div>
-    </div>
+    <app-property-table></app-property-table>
     <div class="action d-flex flex-row-reverse py-3">
         <button class="delete-btn">Delete</button>
         <button class="edit-btn">Edit</button>

@@ -14,7 +14,7 @@ import { environment } from 'src/environments/environment';
 export class AddPropertiesComponent implements OnInit {
   property_type: { key: string, value: string }[] = [
     { key: 'Room', value: 'ROOM' },
-    { key: 'Home', value: 'HOME' },
+    { key: 'House', value: 'HOUSE' },
     { key: 'Flat', value: 'FLAT' },
     {
       key: 'Shop', value: 'COMMERCIAL_SPACE'
