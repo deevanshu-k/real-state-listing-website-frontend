@@ -19,6 +19,7 @@ import { AddPropertiesComponent } from './properties/components/add-properties/a
 import { AddPropertyImageComponent } from './properties/components/add-property-image/add-property-image.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PropertyTableComponent } from './properties/components/property-table/property-table.component';
+import { PropertyCardComponent } from './properties/components/property-card/property-card.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { PropertyTableComponent } from './properties/components/property-table/p
     DocumentsComponent,
     AddPropertiesComponent,
     AddPropertyImageComponent,
-    PropertyTableComponent
+    PropertyTableComponent,
+    PropertyCardComponent
   ],
   imports: [
     CommonModule,

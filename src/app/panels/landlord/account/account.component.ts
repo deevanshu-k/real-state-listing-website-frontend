@@ -13,6 +13,8 @@ import { SnackbarService } from 'src/app/services/snackbar.service';
 export class AccountComponent {
   output?: NgxCroppedEvent;
   imgUrl: string = '/assets/no_profile_image.svg';
+  username: string = "";
+  useremail: string = "";
 
   constructor(
     private authService: AuthService,
@@ -23,6 +25,9 @@ export class AccountComponent {
   ) {
     let url = this.authService.getProfileImage();
     if (url) this.imgUrl = url + "?nocache=" + Date.now();
+    let data = authService.getDecodedToken(String(localStorage.getItem('token')));
+    this.username = data.username;
+    this.useremail = data.email;
   }
 
   logOut() {

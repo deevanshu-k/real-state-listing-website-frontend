@@ -54,7 +54,7 @@ export class AddPropertyImageComponent implements OnInit {
 
   PropertyImageAddOrUpdateHandler($event: any, imageNo: number) {
     this.ngxPhotoEditorService.open($event, {
-      aspectRatio: 1 / 1,
+      aspectRatio: 6 / 4,
       autoCropArea: 1
     }).subscribe({
       next: (data) => {
