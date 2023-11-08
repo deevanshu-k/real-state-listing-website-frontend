@@ -1,2 +1,53 @@
-<p>dashboard works!</p>
-<app-property-card [pdetails]="property" ></app-property-card>
+<div class="main">
+    <div class="head px-4 py-5">
+        <span>Properties Listed</span>
+        <div class="py-4">
+            <div class="property_type_filter">
+                <ng-container *ngFor="let type of property_types">
+                    <button [class.active]="filterbyproperty[type.key]" (click)="applyFilter(type)">
+                        {{ type.label }}
+                    </button>
+                </ng-container>
+            </div>
+            <button class="filter_menu px-3 ms-4" [matMenuTriggerFor]="ptmenu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <rect x="4" y="1.33331" width="1.33333" height="12.6667" fill="#717484" />
+                    <rect x="10.667" y="1.33331" width="1.33333" height="12.6667" fill="#717484" />
+                    <ellipse cx="4.66667" cy="5.33329" rx="2.66667" ry="2.66667" fill="#717484" />
+                    <circle cx="11.3337" cy="9.99998" r="2.66667" fill="#717484" />
+                </svg>
+                <mat-menu #ptmenu="matMenu">
+                    <ng-container *ngFor="let type of property_types">
+                        <button mat-menu-item [class.active]="filterbyproperty[type.key]" (click)="applyFilter(type)">
+                            {{ type.label }}
+                        </button>
+                    </ng-container>
+                </mat-menu>
+            </button>
+            <button class="short_filter px-3 ms-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <g clip-path="url(#clip0_660_1695)">
+                        <path
+                            d="M15.5029 4.32192L11.7404 0.559424C11.4936 0.312549 11.0967 0.312549 10.8498 0.559424L7.09043 4.32192C6.84355 4.5688 6.84355 4.96567 7.09043 5.21255C7.3373 5.45942 7.73418 5.45942 7.98105 5.21255L10.6592 2.53442V13.5594C10.6592 13.9125 10.9436 14.1969 11.2967 14.1969C11.6498 14.1969 11.9342 13.9125 11.9342 13.5594V2.53442L14.6123 5.21255C14.8592 5.45942 15.2561 5.45942 15.5029 5.21255C15.7498 4.9688 15.7498 4.5688 15.5029 4.32192Z"
+                            fill="#717484" />
+                        <path
+                            d="M8.97168 10.8501C8.7248 10.6032 8.32793 10.6032 8.08105 10.8501L5.40293 13.5282V2.50322C5.40293 2.1501 5.11855 1.86572 4.76543 1.86572C4.4123 1.86572 4.12793 2.1501 4.12793 2.50322V13.5282L1.4498 10.8501C1.20293 10.6032 0.806055 10.6032 0.55918 10.8501C0.312305 11.097 0.312305 11.4938 0.55918 11.7407L4.32168 15.5032C4.56855 15.7501 4.96543 15.7501 5.2123 15.5032L8.9748 11.7407C9.21855 11.4938 9.21855 11.0938 8.97168 10.8501Z"
+                            fill="#717484" />
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_660_1695">
+                            <rect width="16" height="16" fill="white" />
+                        </clipPath>
+                    </defs>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <div class="body px-5">
+        <app-property-card [pdetails]="property"></app-property-card>
+        <app-property-card [pdetails]="property"></app-property-card>
+        <app-property-card [pdetails]="property"></app-property-card>
+        <app-property-card [pdetails]="property"></app-property-card>
+        <app-property-card [pdetails]="property"></app-property-card>
+    </div>
+</div>

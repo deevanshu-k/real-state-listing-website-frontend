@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Property } from 'src/app/interfaces/property';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,6 +8,9 @@ import { Property } from 'src/app/interfaces/property';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
+  filterbyproperty:any = {};
+  property_types:  { key:string, label:string }[] = [];
+
   property: Property = {
     id: 3456,
     property_name: "Minimalist and bright flat",
@@ -39,4 +43,27 @@ export class DashboardComponent {
     verification_status: true,
     zipcode: 453441
   };
+
+  constructor(){
+    this.property_types = environment.PROPERTY_TYPES;
+    this.property_types.forEach(d => {
+      this.filterbyproperty[d.key] = false;
+    });
+  }
+
+  applyFilter( input:{ key:string, label:string } ){
+    if(this.property_types.includes(input)){
+      // Check If Input Belongs To Property 
+      if(this.filterbyproperty[input.key]){
+        // If Already True
+        this.filterbyproperty[input.key] = false;
+        return;
+      }
+      // If Not True
+      this.property_types.forEach(d => {
+        this.filterbyproperty[d.key] = false;
+      });
+      this.filterbyproperty[input.key] = true;
+    }
+  }
 }

@@ -20,6 +20,7 @@ import { AddPropertyImageComponent } from './properties/components/add-property-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PropertyTableComponent } from './properties/components/property-table/property-table.component';
 import { PropertyCardComponent } from './properties/components/property-card/property-card.component';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { PropertyCardComponent } from './properties/components/property-card/pro
     ReactiveFormsModule,
     MatTableModule,
     MatPaginatorModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatMenuModule
   ]
 })
 export class LandlordModule { }
