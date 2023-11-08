@@ -44,10 +44,12 @@
         </div>
     </div>
     <div class="body px-5">
-        <app-property-card [pdetails]="property"></app-property-card>
-        <app-property-card [pdetails]="property"></app-property-card>
-        <app-property-card [pdetails]="property"></app-property-card>
-        <app-property-card [pdetails]="property"></app-property-card>
-        <app-property-card [pdetails]="property"></app-property-card>
+        <ng-container 
+            *ngFor="let property of filteredproperties;let i=index">
+            <app-property-card 
+                [pdetails]="property" 
+                [uniqueno]="i">
+            </app-property-card>
+        </ng-container>
     </div>
 </div>

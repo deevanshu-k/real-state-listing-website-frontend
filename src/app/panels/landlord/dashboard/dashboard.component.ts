@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Property } from 'src/app/interfaces/property';
+import { LandlordService } from 'src/app/services/landlord.service';
+import { SnackbarService } from 'src/app/services/snackbar.service';
 import { environment } from 'src/environments/environment.development';
 
 @Component({
@@ -7,56 +9,41 @@ import { environment } from 'src/environments/environment.development';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent {
-  filterbyproperty:any = {};
-  property_types:  { key:string, label:string }[] = [];
+export class DashboardComponent implements OnInit {
+  filterbyproperty: any = {};
+  property_types: { key: string, label: string }[] = [];
+  properties: Property[] = [];
+  filteredproperties: Property[] = [];
 
-  property: Property = {
-    id: 3456,
-    property_name: "Minimalist and bright flat",
-    property_type: "HOUSE",
-    offer_type: "SELL",
-    price: 3000,
-    no_of_rooms: 5,
-    attached_bathroom: true,
-    attached_kitchen: false,
-    include_electricity_price: true,
-    include_water_price: true,
-    state: "Madhya Pradesh",
-    district: "Indore",
-    rating: 4.5,
-    remark: "",
-    images: [
-      {
-        id: 1,
-        img_url: "https://real-state-dev-storage.s3.ap-south-1.amazonaws.com/property_1_1"
-      },
-      {
-        id: 2,
-        img_url: "https://real-state-dev-storage.s3.ap-south-1.amazonaws.com/property_1_2"
-      },
-      {
-        id: 3,
-        img_url: "https://real-state-dev-storage.s3.ap-south-1.amazonaws.com/property_1_3"
-      }
-    ],
-    verification_status: true,
-    zipcode: 453441
-  };
-
-  constructor(){
+  constructor(
+    private _landlordServices: LandlordService,
+    private _snackBarServices: SnackbarService
+  ) {
     this.property_types = environment.PROPERTY_TYPES;
     this.property_types.forEach(d => {
       this.filterbyproperty[d.key] = false;
     });
   }
 
-  applyFilter( input:{ key:string, label:string } ){
-    if(this.property_types.includes(input)){
+  ngOnInit(): void {
+    this._landlordServices.getAllProperties().subscribe({
+      next: res => {
+        this.properties = res.data;
+        this.filteredproperties = this.properties;
+      },
+      error: (e) => {
+        this._snackBarServices.openSnackBar(e.error.message, 'Ok', 'end', 'bottom');
+      }
+    })
+  }
+
+  applyFilter(input: { key: string, label: string }) {
+    if (this.property_types.includes(input)) {
       // Check If Input Belongs To Property 
-      if(this.filterbyproperty[input.key]){
+      if (this.filterbyproperty[input.key]) {
         // If Already True
         this.filterbyproperty[input.key] = false;
+        this.filterbasedonpropertype();
         return;
       }
       // If Not True
@@ -64,6 +51,18 @@ export class DashboardComponent {
         this.filterbyproperty[d.key] = false;
       });
       this.filterbyproperty[input.key] = true;
+      this.filterbasedonpropertype(input.key);
     }
   }
+
+  filterbasedonpropertype(input?: string) {
+    // Input = PropertyType Key Value
+    if(!input) {
+      // No Input
+      this.filteredproperties = this.properties;
+      return;
+    }
+    // Apply Filter
+    this.filteredproperties = this.properties.filter(d => d.property_type == input);
+   }
 }
