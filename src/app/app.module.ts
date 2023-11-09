@@ -17,7 +17,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NgOtpInputModule } from 'ng-otp-input';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 import { FindRoomsComponent } from './pages/find-rooms/find-rooms.component';
@@ -29,6 +29,7 @@ import { TokenInterceptor } from './interceptors/token-interceptor.service';
 import { LogoutComponent } from './services/dialog/logout/logout.component';
 import { NgxPhotoEditorModule } from 'ngx-photo-editor';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
+import { LoaderInterceptor } from './interceptors/loader.interceptor';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { ChangePasswordComponent } from './pages/change-password/change-password
     NgxPhotoEditorModule
   ],
   providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

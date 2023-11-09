@@ -3,6 +3,7 @@
         <div class="carousel-indicators">
             <ng-container *ngFor="let image of property.images;let i=index">
                 <button 
+                    *ngIf="property.images.length>1"
                     type="button" 
                     attr.data-bs-target="#carouselIndicators{{uno}}" 
                     [attr.data-bs-slide-to]="i"
@@ -26,15 +27,17 @@
                     <img 
                         [src]="image.img_url"
                         class="d-block w-100"
-                        alt="...">
+                        alt="..."
+                        onerror="this.src='https://placehold.co/600x400?text=Please+Reload';"
+                        >
                 </div>
             </ng-container>
         </div>
-        <button *ngIf="property.images.length" class="carousel-control-prev" type="button" attr.data-bs-target="#carouselIndicators{{uno}}" data-bs-slide="prev">
+        <button *ngIf="property.images.length>1" class="carousel-control-prev" type="button" attr.data-bs-target="#carouselIndicators{{uno}}" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </button>
-        <button *ngIf="property.images.length" class="carousel-control-next" type="button" attr.data-bs-target="#carouselIndicators{{uno}}" data-bs-slide="next">
+        <button *ngIf="property.images.length>1" class="carousel-control-next" type="button" attr.data-bs-target="#carouselIndicators{{uno}}" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
