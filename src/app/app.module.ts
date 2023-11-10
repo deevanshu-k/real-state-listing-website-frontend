@@ -49,8 +49,7 @@ import { LoaderInterceptor } from './interceptors/loader.interceptor';
 
     MatMenuModule,
     MatSnackBarModule,
-    MatDialogModule,
-    NgxPhotoEditorModule
+    MatDialogModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
