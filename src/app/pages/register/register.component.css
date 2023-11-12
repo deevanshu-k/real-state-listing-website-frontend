@@ -130,12 +130,16 @@
     display: block;
 }
 
+.register-container .register .form .invalid_input {
+    border: 2px solid #ff3333 !important;
+}
+
 .register-container .register .form input,
 .register-container .register .form textarea,
 .register-container .register .form .toggle-menu {
     width: 100%;
     border-radius: 50px;
-    border: 1px solid #EAEBF6;
+    border: 2px solid #EAEBF6;
     background: #FFF;
     padding-left: 45px;
     padding-top: 10px;
@@ -161,19 +165,20 @@
 .register-container .register .form .field:nth-child(1) svg,
 .register-container .register .form .field:nth-child(2) svg,
 .register-container .register .form .field:nth-child(3) svg,
-.register-container .register .form .field:nth-child(3) svg {
+.register-container .register .form .field:nth-child(4) svg, 
+.register-container .register .form .field:nth-child(5) svg {
     position: absolute;
     left: 14px;
     top: 8px;
 }
 
-.register-container .register .form .field:nth-child(5) svg {
+.register-container .register .form .field:nth-child(6) svg {
     position: absolute;
     right: 14px;
     top: 14px;
 }
 
-.register-container .register .form .field:nth-child(5) span {
+.register-container .register .form .field:nth-child(6) span {
     display: block;
 }
 

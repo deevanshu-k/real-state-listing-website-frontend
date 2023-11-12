@@ -16,3 +16,11 @@ body {
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+/* CLASS: without_number (Remove arrows from type:number inputs)  */
+input[type=number].without_number::-webkit-inner-spin-button, 
+input[type=number].without_number::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+     margin: 0; 
+}

@@ -11,12 +11,13 @@ export class TenantService {
 
   constructor(private http: HttpClient) { }
 
-  tenantRegister(username: string, email: string, password: string, address: string): Observable<RegisterSuccessData> {
+  tenantRegister(username: string, email: string, password: string, address: string, phone_no: string): Observable<RegisterSuccessData> {
     return this.http.post<RegisterSuccessData>(environment.END_POINT+"/register/tenant", {
       username,
       email,
       password,
-      address
+      address,
+      phone_no
     });
   }
 }

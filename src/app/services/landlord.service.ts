@@ -28,12 +28,13 @@ export class LandlordService {
 
   constructor(private http: HttpClient) { }
 
-  landlordRegister(username: string, email: string, password: string, address: string): Observable<RegisterSuccessData> {
+  landlordRegister(username: string, email: string, password: string, address: string, phone_no: string): Observable<RegisterSuccessData> {
     return this.http.post<RegisterSuccessData>(environment.END_POINT + "/register/landlord", {
       username,
       email,
       password,
-      address
+      address,
+      phone_no
     });
   }
 
