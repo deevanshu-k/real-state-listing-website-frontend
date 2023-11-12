@@ -22,13 +22,13 @@
             <div class="col">
                 <label for="property_type">Property Type *</label>
                 <select class="form-select p-1" formControlName="property_type" name="property_type">
-                    <option *ngFor="let type of property_type" [value]="type.value">{{ type.key }}</option>
+                    <option *ngFor="let type of property_type" [value]="type.key">{{ type.label }}</option>
                 </select>
             </div>
             <div class="col">
                 <label for="offer_type">Offer Type *</label>
                 <select class="form-select p-1" formControlName="offer_type" name="offer_type" id="">
-                    <option *ngFor="let type of offer_type" [value]="type.value">{{ type.key }}</option>
+                    <option *ngFor="let type of offer_type" [value]="type.key">{{ type.label }}</option>
                 </select>
             </div>
         </div>

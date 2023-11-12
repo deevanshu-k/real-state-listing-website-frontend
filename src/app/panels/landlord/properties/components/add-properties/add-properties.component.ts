@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { State, City } from 'country-state-city';
 import { CreatePropertyType, LandlordService } from 'src/app/services/landlord.service';
 import { SnackbarService } from 'src/app/services/snackbar.service';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-add-properties',
@@ -12,18 +11,8 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./add-properties.component.css']
 })
 export class AddPropertiesComponent implements OnInit {
-  property_type: { key: string, value: string }[] = [
-    { key: 'Room', value: 'ROOM' },
-    { key: 'House', value: 'HOUSE' },
-    { key: 'Flat', value: 'FLAT' },
-    {
-      key: 'Shop', value: 'COMMERCIAL_SPACE'
-    }
-  ];
-  offer_type: { key: string, value: string }[] = [
-    { key: 'Rent', value: "RENT" },
-    { key: 'Sell', value: "SELL" }
-  ];
+  property_type: { key: string, label: string }[] = environment.PROPERTY_TYPES;
+  offer_type: { key: string, label: string }[] = environment.OFFER_TYPES;
   states: { code: string, name: string }[] = [];
   districts: string[] = [];
 
@@ -53,14 +42,12 @@ export class AddPropertiesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.states = State.getStatesOfCountry('IN').map(d => {
-      return { code: d.isoCode, name: d.name };
-    });
+    this.states = [{ code: '1', name: "MP" }] //TODO: Add Fetch state logic
   }
 
   stateChanged(state: string) {
     let code = ((this.states.filter(d => d.name == state))[0]).code;
-    this.districts = City.getCitiesOfState('IN', code).map(d => d.name);
+    this.districts = ["Indore", "Mhow"];  //TODO: Make Fetch City Dynamic
   }
 
   saveProperty() {
