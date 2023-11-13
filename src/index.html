@@ -12,6 +12,29 @@
 </head>
 <body>
   <app-root></app-root>
+
+  <!-- Comment or delete below code in production - Ribbon-Start -->
+  <style>
+    .ribbon-1 {
+      height: 40px;
+      position: fixed;
+      background: rgba(255, 0, 0, 0.685);
+      box-shadow: 0 0 0 999px rgba(255, 0, 0, 0.685);
+      font-family: monospace;
+      font-weight: 600;
+      line-height: 40px;
+      color: #FFF;
+      clip-path: inset(0 -100%);
+      z-index: 99999;
+
+      inset: 0 0 auto auto;
+      transform-origin: 0 0;
+      transform: translate(29.3%) rotate(45deg);
+    }
+  </style>
+  <div class="ribbon-1">In Development</div>
+  <!-- ----------------------Ribbon-End------------------------- -->
+
 </body>
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </html>
