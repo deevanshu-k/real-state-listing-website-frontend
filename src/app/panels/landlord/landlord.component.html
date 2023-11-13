@@ -1,7 +1,7 @@
 <mat-progress-bar *ngIf="httpLoaderService.isLoading | async" class="fixed-top" style="z-index: 9999;"
     mode="indeterminate"></mat-progress-bar>
 <div class="fixed-top top-header d-flex flex-row justify-content-between align-items-center px-4">
-    <div>
+    <div [routerLink]="['home']" style="cursor: pointer;">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="22" viewBox="0 0 20 22" fill="none">
             <path d="M0 8.18585L9.57783 0.639343L19.4374 8.18585L9.57783 5.11609L0 8.18585Z" fill="#1979FA" />
             <path d="M9.01443 13.5579L0 9.20911V17.651L9.01443 21.9998V13.5579Z" fill="#1979FA" />
