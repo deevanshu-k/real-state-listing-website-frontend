@@ -1,0 +1,105 @@
+.back {
+    line-height: 25px;
+}
+
+.back :is(svg, span) {
+    cursor: pointer;
+}
+
+.back span:nth-child(2) {
+    color: var(--Black, #222);
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 25px;
+    padding-left: 6px;
+}
+
+/* body  */
+
+.body {
+    max-width: 700px;
+}
+
+.body .col {
+    display: flex;
+    flex-direction: column;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.body label {
+    color: #000;
+    font-family: Inter;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 4px;
+}
+
+.body input:focus,
+.body select:focus, 
+.body textarea:focus 
+{
+    border-color: #000;
+}
+
+.body input[type='text'],
+.body input[type='number'],
+.body select,
+.body textarea {
+    height: 35px;
+    padding-left: 8px !important;
+    border: 1px solid #c8c8c8;
+    border-radius: 6px;
+    background: #FFF;
+    box-shadow: 0px 1px 5px 0px rgba(142, 145, 159, 0.15);
+}
+
+.body textarea {
+    height: 100px;
+}
+
+.body input[type='checkbox'] {
+    margin-right: 20px;
+}
+
+@media screen and (max-width: 420px) {
+    .body .checkbox_container {
+        flex-direction: column !important;
+    }
+}
+
+.body .checkbox_container .col {
+    flex-direction: row !important;
+    justify-content: space-between;
+}
+
+.body .action div {
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.body .action button {
+    border: 0px;
+    border-radius: 4px;
+    background: #2481FA;
+    padding: 6px 15px;
+
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 22px;
+}
+
+.body .action button:disabled {
+    background-color: #c8c8c8;
+}

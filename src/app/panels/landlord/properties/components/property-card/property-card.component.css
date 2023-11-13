@@ -1,0 +1,93 @@
+.carousel-indicators button {
+    width: 8px !important;
+    height: 8px !important;
+    border-radius: 50% !important;
+}
+
+.card {
+    max-width: 350px;
+    min-width: 250px;
+    cursor: pointer;
+}
+
+.card .carousel-item {
+    width: 348px !important;
+}
+
+.card:hover {
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.20);
+}
+
+.card .card-body .card-title {
+    color: #222;
+    font-family: Poppins;
+    font-size: 16.5px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28.8px;
+    text-transform: uppercase;
+    line-height: 16px !important;
+}
+
+.card .card-body .card-subtitle {
+    color: #222;
+    font-family: Poppins;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 21px;
+}
+
+.card .card-body .price {
+    color: #29AAE3;
+    font-family: Poppins;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.card .card-body .details {
+    color: #222;
+    font-family: Poppins;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 14px;
+}
+
+.card .card-body .foot {
+    height: 32px;
+}
+
+.card .card-body .foot .last {
+    color: #222;
+    font-family: Poppins;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+}
+
+.card .card-body .foot .last svg {
+    vertical-align: sub;
+}
+
+.card .card-body .foot button {
+    border: 2px solid #29AAE3;
+    height: 32px;
+
+    color: #29AAE3;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    background-color: #FFF;
+    letter-spacing: 0.5px;
+}
+
+.card .card-body .foot button:hover {
+    background-color: #29AAE3;
+    color: #FFF;
+}

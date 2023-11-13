@@ -1,0 +1,143 @@
+/* Add Property Action  */
+.top-action {
+    height: 100px;
+}
+
+.top-action button {
+    border-radius: 10px;
+    background: #1979FA;
+    border: 0px;
+
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.4px;
+}
+
+/* Properties  */
+.properties .heading {
+    color: #585562;
+    font-family: Poppins;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.34px;
+    margin-bottom: 15px;
+}
+
+
+/* Properties Table : head  */
+
+.properties table thead {
+    background: #F6F6F6;
+}
+
+.properties table thead th {
+    /* width: 100px; */
+    color: #151C28;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 10px;
+    padding: 10px;
+}
+
+.properties table thead th:nth-child(1) {
+    width: 40px;
+}
+
+.properties table thead th:nth-child(1) {
+    border-top-left-radius: 9px;
+    border-bottom-left-radius: 9px;
+}
+
+.properties table thead th:nth-last-child(1) {
+    border-top-right-radius: 9px;
+    border-bottom-right-radius: 9px;
+}
+
+.properties table input {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    border: 1px solid #D4D4D4;
+    background: #E9E9E9;
+}
+
+/* Properties Table : body  */
+.properties table tbody td {
+    color: #4779CC;
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Poppins;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 10px;
+    text-wrap: pretty;
+    padding: 10px;
+}
+
+/* Properties action  */
+.properties .action button {
+    border: 0px;
+    border-radius: 6px;
+    padding: 5px 12px;
+
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.28px;
+}
+
+.properties .action .delete-btn {
+    background: #FF6868;
+    margin-left: 8px;
+}
+
+.properties .action .edit-btn {
+    background: #2481FA;
+}
+
+/* pageing  */
+
+.page-custom span {
+    border-top: 1px solid #D4D4D4;
+    border-bottom: 1px solid #D4D4D4;
+    padding: 7px;
+    font-size: 13px;
+}
+
+.page-custom :is(.left, .right) {
+    border-left: 1px solid #D4D4D4;
+    border-right: 1px solid #D4D4D4;
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.page-custom .left {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.page-custom .right {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.page-custom .active {
+    background-color: #1979FA;
+    color: #FFF;
+}

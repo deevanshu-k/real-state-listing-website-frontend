@@ -1,0 +1,106 @@
+<div class="table_container mat-elevation-z8">
+    <div *ngIf="dataLoading" class="position-absolute top-50 start-50 spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+    <table mat-table [dataSource]="dataSource">
+
+        <!-- Checkbox Column -->
+        <ng-container matColumnDef="select" stickyEnd>
+            <th mat-header-cell *matHeaderCellDef>
+                Actions
+            </th>
+            <td mat-cell *matCellDef="let row">
+                <i aria-hidden="true" style="cursor: pointer;
+                font-size: 20px;
+                color: #222;" class="icon material-icons mx-1" (click)="editPropertyDetails(row.id)">edit</i>
+                <!-- <mat-checkbox color="primary" [checked]="row == selectedIndex" (change)="selectRow(row)">
+                </mat-checkbox> -->
+                <i aria-hidden="true" style="cursor: pointer;
+                font-size: 20px;
+                color: #222;" class="icon material-icons mx-1">delete</i>
+            </td>
+        </ng-container>
+        <!-- Property Name Column -->
+        <ng-container matColumnDef="property_name" sticky>
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.property_name}} </td>
+        </ng-container>
+        <!-- Property Type Column -->
+        <ng-container matColumnDef="property_type">
+            <th mat-header-cell *matHeaderCellDef> Property Type </th>
+            <td mat-cell *matCellDef="let element"> {{element.property_type | titlecase}} </td>
+        </ng-container>
+        <!-- Offer Type Column -->
+        <ng-container matColumnDef="offer_type">
+            <th mat-header-cell *matHeaderCellDef> Offer Type </th>
+            <td mat-cell *matCellDef="let element"> {{element.offer_type | titlecase}} </td>
+        </ng-container>
+        <!-- Verification Status Column -->
+        <ng-container matColumnDef="verification_status">
+            <th mat-header-cell *matHeaderCellDef> Status </th>
+            <td mat-cell *matCellDef="let element"> {{element.verification_status? 'Published':'In-Review'}} </td>
+        </ng-container>
+        <!-- State Column -->
+        <ng-container matColumnDef="state">
+            <th mat-header-cell *matHeaderCellDef> State </th>
+            <td mat-cell *matCellDef="let element"> {{element.state}} </td>
+        </ng-container>
+        <!-- District Column -->
+        <ng-container matColumnDef="district">
+            <th mat-header-cell *matHeaderCellDef> District </th>
+            <td mat-cell *matCellDef="let element"> {{element.district}} </td>
+        </ng-container>
+        <!-- Zipcode Column -->
+        <ng-container matColumnDef="zipcode">
+            <th mat-header-cell *matHeaderCellDef> Pincode </th>
+            <td mat-cell *matCellDef="let element"> {{element.zipcode}} </td>
+        </ng-container>
+        <!-- Remark Column -->
+        <ng-container matColumnDef="remark">
+            <th mat-header-cell *matHeaderCellDef> Remark </th>
+            <td mat-cell *matCellDef="let element"> {{element.remark | slice:0:10}}... </td>
+        </ng-container>
+        <!-- No Of Rooms Column -->
+        <ng-container matColumnDef="no_of_rooms">
+            <th mat-header-cell *matHeaderCellDef> No Of Rooms </th>
+            <td mat-cell *matCellDef="let element"> {{element.no_of_rooms}} </td>
+        </ng-container>
+        <!-- Price Column -->
+        <ng-container matColumnDef="price">
+            <th mat-header-cell *matHeaderCellDef> Price </th>
+            <td mat-cell *matCellDef="let element"> {{element.price | currency:'INR':'symbol':'3.0-0'}} </td>
+        </ng-container>
+        <!-- Attached Kitchen Column -->
+        <ng-container matColumnDef="attached_kitchen">
+            <th mat-header-cell *matHeaderCellDef> Kitchen </th>
+            <td mat-cell *matCellDef="let element"> {{element.attached_kitchen?'Yes':'No'}} </td>
+        </ng-container>
+        <!-- Attached Bathroom Column -->
+        <ng-container matColumnDef="attached_bathroom">
+            <th mat-header-cell *matHeaderCellDef> Bathroom </th>
+            <td mat-cell *matCellDef="let element"> {{element.attached_bathroom?'Yes':'No'}} </td>
+        </ng-container>
+        <!-- Include Water Price Column -->
+        <ng-container matColumnDef="include_water_price">
+            <th mat-header-cell *matHeaderCellDef> Include Water Price </th>
+            <td mat-cell *matCellDef="let element"> {{element.include_water_price?'Yes':'No'}} </td>
+        </ng-container>
+        <!-- Include Electricity Price Column -->
+        <ng-container matColumnDef="include_electricity_price">
+            <th mat-header-cell *matHeaderCellDef> Include Electricity Price </th>
+            <td mat-cell *matCellDef="let element"> {{element.include_electricity_price?'Yes':'No'}} </td>
+        </ng-container>
+        <!-- Rating Column -->
+        <ng-container matColumnDef="rating">
+            <th mat-header-cell *matHeaderCellDef> Rating </th>
+            <td mat-cell *matCellDef="let element"> {{element.rating}} </td>
+        </ng-container>
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+</div>
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+</mat-paginator>

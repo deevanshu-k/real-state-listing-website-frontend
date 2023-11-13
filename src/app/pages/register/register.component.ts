@@ -24,7 +24,8 @@ export class RegisterComponent {
     name: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
-    address: new FormControl('', [Validators.required])
+    address: new FormControl('', [Validators.required]),
+    phone_no: new FormControl('', [Validators.required,Validators.pattern("^[0-9]*$"),Validators.minLength(10), Validators.maxLength(10)])
   });
 
   constructor(
@@ -37,9 +38,9 @@ export class RegisterComponent {
 
   submitRgForm(){
     this.submitBtnIsLoading = true;
-    if (this.registration_form.valid && this.account_type && this.registration_form.controls.name.value && this.registration_form.controls.email.value && this.registration_form.controls.password.value && this.registration_form.controls.address.value) {
+    if (this.registration_form.valid && this.account_type && this.registration_form.controls.name.value && this.registration_form.controls.email.value && this.registration_form.controls.password.value && this.registration_form.controls.address.value && this.registration_form.controls.phone_no.value) {
       if (this.account_type == "TENANT") {
-        this._tenantService.tenantRegister(this.registration_form.controls.name.value,this.registration_form.controls.email.value,this.registration_form.controls.password.value,this.registration_form.controls.address.value).subscribe({
+        this._tenantService.tenantRegister(this.registration_form.controls.name.value,this.registration_form.controls.email.value,this.registration_form.controls.password.value,this.registration_form.controls.address.value,this.registration_form.controls.phone_no.value).subscribe({
           next: (data: RegisterSuccessData) => {
             this._snackbarService.openSnackBar(data.message, "OK", "end", "bottom", 3000);
             this.email = data.data.email;
@@ -55,7 +56,7 @@ export class RegisterComponent {
         });
       }
       else {
-        this._landlordService.landlordRegister(this.registration_form.controls.name.value,this.registration_form.controls.email.value,this.registration_form.controls.password.value,this.registration_form.controls.address.value).subscribe({
+        this._landlordService.landlordRegister(this.registration_form.controls.name.value,this.registration_form.controls.email.value,this.registration_form.controls.password.value,this.registration_form.controls.address.value,this.registration_form.controls.phone_no.value).subscribe({
           next: (data: RegisterSuccessData) => {
             this._snackbarService.openSnackBar(data.message, "OK", "end", "bottom", 3000);
             this.email = data.data.email;

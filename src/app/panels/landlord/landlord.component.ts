@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpLoaderService } from 'src/app/services/http-loader.service';
 
 @Component({
   selector: 'app-landlord',
@@ -7,4 +8,7 @@ import { Component } from '@angular/core';
 })
 export class LandlordComponent {
 
+  constructor(
+    public httpLoaderService: HttpLoaderService
+  ){}
 }

@@ -2,7 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Pacifico&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+  
 :root {
     --primary-font: Montserrat;
     --secondry-font: Raleway;
@@ -15,3 +16,11 @@ body {
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+/* CLASS: without_number (Remove arrows from type:number inputs)  */
+input[type=number].without_number::-webkit-inner-spin-button, 
+input[type=number].without_number::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+     margin: 0; 
+}

@@ -10,34 +10,34 @@ import { environment } from 'src/environments/environment.development';
   providedIn: 'root'
 })
 export class AuthService {
-  isLogin:Subject<boolean> = new Subject();
+  isLogin: Subject<boolean> = new Subject();
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  getAuthToken():string {
+  getAuthToken(): string {
     return String(localStorage.getItem('token'));
   }
 
-  tenantLogin(email:string,password:string):Observable<LoginSuccessData>{
-    return this.http.post<LoginSuccessData>(environment.END_POINT+"/login/tenant",{
+  tenantLogin(email: string, password: string): Observable<LoginSuccessData> {
+    return this.http.post<LoginSuccessData>(environment.END_POINT + "/login/tenant", {
       email,
       password
     });
   }
-  landlordLogin(email:string,password:string):Observable<LoginSuccessData>{
-    return this.http.post<LoginSuccessData>(environment.END_POINT+"/login/landlord",{
+  landlordLogin(email: string, password: string): Observable<LoginSuccessData> {
+    return this.http.post<LoginSuccessData>(environment.END_POINT + "/login/landlord", {
       email,
       password
     });
   }
 
-  setUserLogin(loginedData:LoginSuccessData){
-    localStorage.setItem("token",loginedData.data.jwtToken);
-    localStorage.setItem("role",loginedData.data.role);
+  setUserLogin(loginedData: LoginSuccessData) {
+    localStorage.setItem("token", loginedData.data.jwtToken);
+    localStorage.setItem("role", loginedData.data.role);
     this.isLogin.next(true);
   }
 
-  removeUserLogin(){
+  removeUserLogin() {
     localStorage.removeItem("token");
     localStorage.removeItem("role");
     this.isLogin.next(false);
@@ -45,9 +45,9 @@ export class AuthService {
 
   isTokenExpired(): boolean {
     let token = localStorage.getItem("token");
-    if(!token) return true;
+    if (!token) return true;
     let tokenData = this.getDecodedToken(token);
-    if (Number(tokenData.exp*1000) > (new Date()).getTime()) {
+    if (Number(tokenData.exp * 1000) > (new Date()).getTime()) {
       return false;
     }
     else {
@@ -62,6 +62,11 @@ export class AuthService {
   getRole(): string {
     let token = this.getDecodedToken(String(localStorage.getItem('token')));
     return token.role;
+  }
+
+  getProfileImage(): string | null {
+    let token = this.getDecodedToken(String(localStorage.getItem('token')));
+    return token.profile_image;
   }
 
 }
