@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Property } from 'src/app/interfaces/property';
+import { LandlordService, UpdatePropertyDataType } from 'src/app/services/landlord.service';
+import { SnackbarService } from 'src/app/services/snackbar.service';
 import { UtilService } from 'src/app/services/util.service';
 import { environment } from 'src/environments/environment.development';
 
@@ -24,12 +26,15 @@ export class EditPropertyComponent implements OnInit {
   savebtnloading: boolean = false;
 
   constructor(
-    private router: ActivatedRoute,
-    private utilServices: UtilService
+    private activeRouter: ActivatedRoute,
+    private router: Router,
+    private utilServices: UtilService,
+    private landlordServices: LandlordService,
+    private _snackbarServices: SnackbarService
   ) { }
 
   ngOnInit(): void {
-    this.router.paramMap.subscribe(params => {
+    this.activeRouter.paramMap.subscribe(params => {
       this.property = JSON.parse(String(params.get('data')));
       this.propertyformgroup = new FormGroup({
         property_type: new FormControl(this.property.property_type, [Validators.required]),
@@ -52,7 +57,7 @@ export class EditPropertyComponent implements OnInit {
         this.states = data;
         this.stateChanged(this.property.state);
       },
-      error: (e) => {}
+      error: (e) => { }
     });
   }
 
@@ -64,34 +69,44 @@ export class EditPropertyComponent implements OnInit {
         this.propertyformgroup?.controls['district'].enable();
         this.districts = data;
       },
-      error: (e) => {}
+      error: (e) => { }
     });
   }
 
-  saveChanges(){
-    if(this.propertyformgroup?.invalid) return;
+  saveChanges() {
+    if (this.propertyformgroup?.invalid) return;
     let changedData = this.propertyformgroup?.value;
-    let data: any = {};
-    if(changedData.property_type != this.property.property_type) data.property_type = changedData.property_type;
-    if(changedData.offer_type != this.property.offer_type) data.offer_type = changedData.offer_type;
-    if(changedData.property_name != this.property.property_name) data.property_name = changedData.property_name;
-    if(changedData.price != this.property.price) data.price = changedData.price;
-    if(changedData.attached_bathroom != this.property.attached_bathroom) data.attached_bathroom = changedData.attached_bathroom;
-    if(changedData.attached_kitchen != this.property.attached_kitchen) data.attached_kitchen = changedData.attached_kitchen;
-    if(changedData.include_water_price != this.property.include_water_price) data.include_water_price = changedData.include_water_price;
-    if(changedData.include_electricity_price != this.property.include_electricity_price) data.include_electricity_price = changedData.include_electricity_price;
-    if(changedData.state != this.property.state) data.state = changedData.state;
-    if(changedData.district != this.property.district) data.district = changedData.district;
-    if(changedData.zipcode != this.property.zipcode) data.zipcode = changedData.zipcode;
-    if(changedData.remark != this.property.remark) data.remark = changedData.remark;
-    if(changedData.no_of_rooms != this.property.no_of_rooms) data.no_of_rooms = changedData.no_of_rooms;
+    let data: UpdatePropertyDataType = {};
+    if (changedData.property_type != this.property.property_type) data.property_type = changedData.property_type;
+    if (changedData.offer_type != this.property.offer_type) data.offer_type = changedData.offer_type;
+    if (changedData.property_name != this.property.property_name) data.property_name = changedData.property_name;
+    if (changedData.price != this.property.price) data.price = changedData.price;
+    if (changedData.attached_bathroom != this.property.attached_bathroom) data.attached_bathroom = changedData.attached_bathroom;
+    if (changedData.attached_kitchen != this.property.attached_kitchen) data.attached_kitchen = changedData.attached_kitchen;
+    if (changedData.include_water_price != this.property.include_water_price) data.include_water_price = changedData.include_water_price;
+    if (changedData.include_electricity_price != this.property.include_electricity_price) data.include_electricity_price = changedData.include_electricity_price;
+    if (changedData.state != this.property.state) data.state = changedData.state;
+    if (changedData.district != this.property.district) data.district = changedData.district;
+    if (changedData.zipcode != this.property.zipcode) data.zipcode = changedData.zipcode;
+    if (changedData.remark != this.property.remark) data.remark = changedData.remark;
+    if (changedData.no_of_rooms != this.property.no_of_rooms) data.no_of_rooms = changedData.no_of_rooms;
 
-    if(Object.keys(data).length <= 0) return;
+    if (Object.keys(data).length <= 0) return;
     this.savebtnloading = true;
-    setTimeout(() => {
-      console.log(data)
-      this.savebtnloading = false;
-    },2000);
+
+    // Call Update Service
+    this.landlordServices.updateProperty(this.property.id, data).subscribe({
+      next: (d) => {
+        this._snackbarServices.openSnackBar(d.message, "OK", "end", "bottom", 3000);
+        this.savebtnloading = false;
+        this.router.navigate(['/panel/landlord/dashboard']);
+      },
+      error: (error) => {
+        this.savebtnloading = false;
+        this._snackbarServices.openSnackBar(error.error.message, "OK", "end", "bottom", 3000);
+        this.router.navigate(['/panel/landlord/dashboard']);
+      }
+    });
   }
 
 }
