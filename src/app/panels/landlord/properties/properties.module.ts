@@ -9,13 +9,15 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { environment } from 'src/environments/environment.development';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPhotoEditorModule } from 'ngx-photo-editor';
+import { EditPropertyComponent } from './components/edit-property/edit-property.component';
 
 const routes: Routes = [
   { path: "", component: PropertiesComponent },
   { path: "add", component: AddPropertiesComponent },
-  { path: "addimages/:propertyId", component: AddPropertyImageComponent }
+  { path: "addimages/:propertyId", component: AddPropertyImageComponent },
+  { path: "edit/:propertyId", component:  EditPropertyComponent}
 ];
 
 @NgModule({
@@ -23,10 +25,12 @@ const routes: Routes = [
     PropertiesComponent,
     AddPropertiesComponent,
     AddPropertyImageComponent,
-    PropertyTableComponent
+    PropertyTableComponent,
+    EditPropertyComponent
   ],
   imports: [
     CommonModule,
+    FormsModule,
     ReactiveFormsModule,
     MatCheckboxModule,
     MatTableModule,

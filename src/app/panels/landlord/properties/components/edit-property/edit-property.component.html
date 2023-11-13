@@ -1,0 +1,154 @@
+<div class="main">
+    <div class="back px-3 py-4">
+        <svg routerLink="/panel/landlord/dashboard" xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+            viewBox="0 0 23 23" fill="none">
+            <path
+                d="M11.5 20.125C16.2635 20.125 20.125 16.2635 20.125 11.5C20.125 6.73654 16.2635 2.875 11.5 2.875C6.73654 2.875 2.875 6.73654 2.875 11.5C2.875 16.2635 6.73654 20.125 11.5 20.125Z"
+                stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M12.458 8.625L9.58301 11.5L12.458 14.375" stroke="black" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+        </svg>
+        <span routerLink="/panel/landlord/dashboard">Edit Property</span>
+    </div>
+    <div id="carouselIndicators{{property.id}}" class="carousel slide mx-auto card-img-top">
+        <div class="carousel-indicators">
+            <ng-container *ngFor="let image of property.images;let i=index">
+                <button 
+                    *ngIf="property.images.length>1"
+                    type="button" 
+                    attr.data-bs-target="#carouselIndicators{{property.id}}" 
+                    [attr.data-bs-slide-to]="i"
+                    class="{{ (i == 0) ? 'active' : '' }}" 
+                    aria-current="true" [attr.aria-label]="'Slide' + i">
+                </button>
+            </ng-container>
+        </div>
+        <div class="carousel-inner">
+                <div *ngIf="property.images.length == 0"
+                    class="carousel-item active">
+                    <img 
+                        src="https://placehold.co/600x400?text=No+Images"
+                        class="d-block w-100"
+                        alt="...">
+                </div>
+            <ng-container *ngFor="let image of property.images;let i=index">
+                <div 
+                    class="carousel-item" 
+                    [class.active]="i == 0">
+                    <img 
+                        [src]="image.img_url"
+                        class="d-block w-100"
+                        alt="..."
+                        onerror="this.src='https://placehold.co/600x400?text=Please+Reload';"
+                        >
+                </div>
+            </ng-container>
+        </div>
+        <button *ngIf="property.images.length>1" class="carousel-control-prev" type="button" attr.data-bs-target="#carouselIndicators{{property.id}}" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button *ngIf="property.images.length>1" class="carousel-control-next" type="button" attr.data-bs-target="#carouselIndicators{{property.id}}" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <div *ngIf="propertyformgroup" class="body p-2 mx-auto" [formGroup]="propertyformgroup">
+        <div class="row">
+            <div class="col">
+                <label for="property_name">Property Name *</label>
+                <input type="text" name="property_name" formControlName="property_name" id="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label for="property_type">Property Type *</label>
+                <select class="form-select p-1" formControlName="property_type" name="property_type">
+                    <option *ngFor="let type of property_type" [value]="type.key">{{ type.label }}</option>
+                </select>
+            </div>
+            <div class="col">
+                <label for="offer_type">Offer Type *</label>
+                <select class="form-select p-1" formControlName="offer_type" name="offer_type" id="">
+                    <option *ngFor="let type of offer_type" [value]="type.key">{{ type.label }}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <label for="no_of_rooms">No Of Rooms *</label>
+                <input type="number" formControlName="no_of_rooms" name="no_of_rooms" id="">
+            </div>
+            <div class="col">
+                <label for="price">Price *</label>
+                <input type="number" formControlName="price" name="price" id="">
+            </div>
+        </div>
+
+        <div class="row checkbox_container">
+            <div class="col">
+                <label for="attached_kitchen">Attached Kitchen</label>
+                <input class="form-check-input mt-0" formControlName="attached_kitchen" type="checkbox"
+                    name="attached_kitchen" id="">
+            </div>
+            <div class="col">
+                <label for="attached_bathroom">Attached Bathroom</label>
+                <input class="form-check-input mt-0" formControlName="attached_bathroom" type="checkbox"
+                    name="attached_bathroom" id="">
+            </div>
+        </div>
+
+        <div class="row checkbox_container">
+            <div class="col">
+                <label for="include_water_bill">Include Water Bill</label>
+                <input class="form-check-input mt-0" formControlName="include_water_price" type="checkbox"
+                    name="include_water_bill" id="">
+            </div>
+            <div class="col">
+                <label for="include_electricity">Include Electricity</label>
+                <input class="form-check-input mt-0" formControlName="include_electricity_price" type="checkbox"
+                    name="include_electricity" id="">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <label for="state">State *</label>
+                <select class="form-select p-1" #stateselector (change)="stateChanged(stateselector.value)"
+                    formControlName="state" name="state">
+                    <option *ngFor="let state of states" [value]="state.name">{{ state.name }}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <label for="district">District *</label>
+                <select class="form-select p-1" formControlName="district" name="district">
+                    <option *ngFor="let district of districts" [value]="district">{{ district }}</option>
+                </select>
+            </div>
+            <div class="col">
+                <label for="zip_code">Zip Code *</label>
+                <input type="number" formControlName="zipcode" name="zip_code" id="">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <label for="remark">Remark</label>
+                <textarea name="remark" formControlName="remark" cols="30" rows="4"></textarea>
+            </div>
+        </div>
+
+        <div class="row action">
+            <div class="col d-flex flex-row-reverse">
+                <button (click)="saveChanges()" [disabled]="savebtnloading">
+                    {{ savebtnloading?'':'save' }}
+                    <span *ngIf="savebtnloading" class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
