@@ -21,6 +21,22 @@ export interface CreatePropertyType {
   include_electricity_price: boolean
 }
 
+export interface UpdatePropertyDataType {
+  property_type?: string,
+  offer_type?: string,
+  property_name?: string,
+  price?: number,
+  attached_bathroom?: boolean,
+  attached_kitchen?: boolean,
+  include_water_price?: boolean,
+  include_electricity_price?: boolean,
+  state?: string,
+  district?: string,
+  zipcode?: number,
+  remark?: string,
+  no_of_rooms?: never,
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -58,5 +74,12 @@ export class LandlordService {
         property_name: string
       }
     }>(environment.END_POINT + "/property", data);
+  }
+
+  updateProperty(Id: number, data: UpdatePropertyDataType): Observable<{ code: number, message: string }> {
+    return this.http.post<{ code: number, message: string }>(environment.END_POINT + "/property", {
+      propertyId: Id,
+      data
+    })
   }
 }
