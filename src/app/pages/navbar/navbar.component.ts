@@ -11,6 +11,7 @@ export class NavbarComponent implements OnInit {
   isUserLoggedIn: boolean = false;
   planType: "FREETENANT"| "PREMIUMTENANT"  | "FREELANDLORD" | "STANDARDLANDLORD" | "PREMIUMLANDLORD" | "" = "";
   name:string = "Welcome !";
+  profileImage?: string | null;
 
   constructor(
     private _authService: AuthService,
@@ -22,6 +23,7 @@ export class NavbarComponent implements OnInit {
         let decodedToken = _authService.getDecodedToken(String(localStorage.getItem("token")));
         this.planType = decodedToken.subscription_plan;
         this.name = decodedToken.username;
+        this.profileImage = decodedToken.profile_image;
       }
       else {
         this.planType = "";

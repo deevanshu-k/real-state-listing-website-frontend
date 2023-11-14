@@ -8,6 +8,7 @@ import { PasswordChangeComponent } from './components/password-change/password-c
 import { PlanDetailsComponent } from './components/plan-details/plan-details.component';
 import { environment } from 'src/environments/environment.development';
 import { NgxPhotoEditorModule } from 'ngx-photo-editor';
+import { DocumentsModule } from 'src/app/pages/components/documents/documents.module';
 
 
 const routes: Routes = [
@@ -30,6 +31,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     NgxPhotoEditorModule,
+    DocumentsModule,
     RouterModule.forChild(routes)
   ]
 })
