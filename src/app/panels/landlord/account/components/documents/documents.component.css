@@ -1,0 +1,17 @@
+.back {
+    line-height: 25px;
+}
+
+.back :is(svg, span) {
+    cursor: pointer;
+}
+
+.back span:nth-child(2) {
+    color: var(--Black, #222);
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 25px;
+    padding-left: 6px;
+}

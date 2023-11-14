@@ -21,7 +21,6 @@ import { GetInTouchButtonFooterComponent } from './pages/components/get-in-touch
 import { environment } from 'src/environments/environment.development';
 import { TokenInterceptor } from './interceptors/token-interceptor.service';
 import { LogoutComponent } from './services/dialog/logout/logout.component';
-import { NgxPhotoEditorModule } from 'ngx-photo-editor';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
 

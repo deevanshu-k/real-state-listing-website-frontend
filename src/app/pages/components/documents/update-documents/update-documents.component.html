@@ -1,0 +1,40 @@
+<div class="container d-flex flex-wrap justify-content-evenly">
+    <div class="document d1">
+        <input type="file" #AadharUpdateImageInput (change)="DocumentImageAddOrUpdateHandler($event,'aadhar')" name="" accept=".png, .jpg, .jpeg" id="" style="display: none;">
+        <h4 class="m-2">Aadhar Card</h4>
+        <div class="card" *ngIf="aadhar">
+            <img [src]="aadhar" class="card-img" alt="...">
+            <div class="card-img-overlay">
+                <span class="badge w-100 text-bg-primary position-absolute bottom-0 start-0" (click)="AadharUpdateImageInput.click()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 17 17" fill="none">
+                        <path
+                            d="M14.875 14.875H2.125M14.0817 4.95834L7.79167 11.2129L4.95833 12.0417L5.78708 9.20834L12.0771 2.91834C12.3431 2.63036 12.7126 2.45968 13.1043 2.44374C13.496 2.42781 13.8781 2.56792 14.1667 2.83334C14.3035 2.97694 14.4101 3.14659 14.4801 3.33221C14.5502 3.51782 14.5821 3.71562 14.5742 3.91384C14.5663 4.11206 14.5186 4.30666 14.434 4.48609C14.3494 4.66552 14.2296 4.82612 14.0817 4.95834Z"
+                            stroke="#F8F8F8" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </span>
+            </div>
+        </div>
+        <div class="box m-3" *ngIf="!aadhar" (click)="AadharUpdateImageInput.click()">
+            +
+        </div>
+    </div>
+    <div class="document d2">
+        <input type="file" #EbillUpdateImageInput (change)="DocumentImageAddOrUpdateHandler($event,'ebill')" name="" accept=".png, .jpg, .jpeg" id="" style="display: none;">
+        <h4 class="m-2">Electricity Bill</h4>
+        <div class="card" *ngIf="ebill">
+            <img [src]="ebill" class="card-img" alt="...">
+            <div class="card-img-overlay">
+                <span class="badge w-100 text-bg-primary position-absolute bottom-0 start-0" (click)="EbillUpdateImageInput.click()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 17 17" fill="none">
+                        <path
+                            d="M14.875 14.875H2.125M14.0817 4.95834L7.79167 11.2129L4.95833 12.0417L5.78708 9.20834L12.0771 2.91834C12.3431 2.63036 12.7126 2.45968 13.1043 2.44374C13.496 2.42781 13.8781 2.56792 14.1667 2.83334C14.3035 2.97694 14.4101 3.14659 14.4801 3.33221C14.5502 3.51782 14.5821 3.71562 14.5742 3.91384C14.5663 4.11206 14.5186 4.30666 14.434 4.48609C14.3494 4.66552 14.2296 4.82612 14.0817 4.95834Z"
+                            stroke="#F8F8F8" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </span>
+            </div>
+        </div>
+        <div class="box m-3" *ngIf="!ebill" (click)="EbillUpdateImageInput.click()">
+            +
+        </div>
+    </div>
+</div>
