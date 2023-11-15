@@ -24,3 +24,14 @@ input[type=number].without_number::-webkit-outer-spin-button {
     -webkit-appearance: none; 
      margin: 0; 
 }
+
+/* splash screen  */
+.splash-screen {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    background-color: #F8F8F8;
+
+    z-index: 999999;
+}
