@@ -51,6 +51,8 @@ export class AccountComponent {
     input.append('file', file);
     this.uploadServives.updateProfileImage(input).subscribe({
       next: (res) => {
+        let url = this.authService.getProfileImage();
+        if (url) this.imgUrl = url + "?nocache=" + Date.now();
         this._snackbarService.openSnackBar(res.message, "OK", "end", "bottom", 3000);
       },
       error: (e) => {
