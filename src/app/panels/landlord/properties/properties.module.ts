@@ -12,6 +12,7 @@ import { environment } from 'src/environments/environment.development';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPhotoEditorModule } from 'ngx-photo-editor';
 import { EditPropertyComponent } from './components/edit-property/edit-property.component';
+import { DeletePropertyDialogComponent } from './components/delete-property-dialog/delete-property-dialog.component';
 
 const routes: Routes = [
   { path: "", component: PropertiesComponent },
@@ -26,7 +27,8 @@ const routes: Routes = [
     AddPropertiesComponent,
     AddPropertyImageComponent,
     PropertyTableComponent,
-    EditPropertyComponent
+    EditPropertyComponent,
+    DeletePropertyDialogComponent
   ],
   imports: [
     CommonModule,

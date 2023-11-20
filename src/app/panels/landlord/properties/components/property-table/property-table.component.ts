@@ -1,10 +1,12 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Property } from 'src/app/interfaces/property';
 import { LandlordService } from 'src/app/services/landlord.service';
 import { SnackbarService } from 'src/app/services/snackbar.service';
+import { DeletePropertyDialogComponent } from '../delete-property-dialog/delete-property-dialog.component';
 
 @Component({
   selector: 'app-property-table',
@@ -23,7 +25,8 @@ export class PropertyTableComponent implements AfterViewInit, OnInit {
   constructor(
     private _landlordServices: LandlordService,
     private _snackBarServices: SnackbarService,
-    private router: Router
+    private router: Router,
+    private dialog: MatDialog
   ) { }
 
   ngAfterViewInit() {
@@ -42,20 +45,30 @@ export class PropertyTableComponent implements AfterViewInit, OnInit {
   }
 
   ngOnInit(): void {
-    
-  }
 
-  // selectRow( i: number){
-  //   if(this.selectedIndex == i){
-  //     this.selectedIndex = -1;
-  //     return;
-  //   }
-  //   this.selectedIndex = i;
-  // }
+  }
 
   editPropertyDetails(id: number) {
     console.log(id);
-    
-    this.router.navigate(["/panel/landlord/properties/edit/"+ id, { 'data': JSON.stringify(this.properties.find(d => d.id == id))}]);
+
+    this.router.navigate(["/panel/landlord/properties/edit/" + id, { 'data': JSON.stringify(this.properties.find(d => d.id == id)) }]);
+  }
+
+  deleteProperty(Id: number) {
+    const dialogRef = this.dialog.open(DeletePropertyDialogComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this._landlordServices.deleteProperty(Id).subscribe({
+          next: (data) => {
+            this._snackBarServices.openSnackBar(data.message, "OK", "end", "bottom", 3000);
+            this.properties = this.properties.filter(d => d.id != Id);
+            this.dataSource.data = this.properties;
+          },
+          error: (error) => {
+            this._snackBarServices.openSnackBar(error.error.message, "OK", "end", "bottom", 3000);
+           }
+        });
+      }
+    });
   }
 }
