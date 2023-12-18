@@ -86,4 +86,8 @@ export class LandlordService {
   deleteProperty(Id: number): Observable<{ code: number, message: string }> {
     return this.http.delete<{ code: number, message: string }>(environment.END_POINT + "/property/" + Id);
   }
+
+  changePublishStateOfProperty(Id: number, publish: boolean): Observable<{ code: number, message: string }> {
+    return this.http.post<{ code: number, message: string }>(environment.END_POINT + `/property/publish?propertyId=${Id}&publish=${publish}`,{})
+  }
 }

@@ -12,12 +12,14 @@
             <td mat-cell *matCellDef="let row">
                 <i aria-hidden="true" style="cursor: pointer;
                 font-size: 20px;
-                color: #222;" class="icon material-icons mx-1" (click)="editPropertyDetails(row.id)">edit</i>
+                color: #222;" class="icon material-icons mx-1" matTooltip="edit"
+                    (click)="editPropertyDetails(row.id)">edit</i>
                 <!-- <mat-checkbox color="primary" [checked]="row == selectedIndex" (change)="selectRow(row)">
                 </mat-checkbox> -->
                 <i aria-hidden="true" style="cursor: pointer;
                 font-size: 20px;
-                color: #222;" class="icon material-icons mx-1" (click)="deleteProperty(row.id)">delete</i>
+                color: #222;" class="icon material-icons mx-1" matTooltip="delete"
+                    (click)="deleteProperty(row.id)">delete</i>
             </td>
         </ng-container>
         <!-- Property Name Column -->
@@ -37,8 +39,30 @@
         </ng-container>
         <!-- Verification Status Column -->
         <ng-container matColumnDef="verification_status">
-            <th mat-header-cell *matHeaderCellDef> Status </th>
-            <td mat-cell *matCellDef="let element"> {{element.verification_status? 'Published':'In-Review'}} </td>
+            <th mat-header-cell *matHeaderCellDef>
+                Status
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    matTooltip="Each property needs to be verified before publishing." width="16" height="16"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" class="feather feather-info">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="12" y1="16" x2="12" y2="12" />
+                    <line x1="12" y1="8" x2="12.01" y2="8" />
+                </svg>
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.verification_status? 'Verified':'In-Review'}} </td>
+        </ng-container>
+        <!-- Publish Status Column -->
+        <ng-container matColumnDef="publish_status">
+            <th mat-header-cell *matHeaderCellDef> Publish </th>
+            <td mat-cell *matCellDef="let element">
+                <mat-slide-toggle class="example-margin"
+                    [matTooltip]="!element.verification_status? 'Property is currently under review.':element.publish_status?'Toggle the button to unpublish this property.':'Toggle the button to publish this property.'"
+                    (change)="changePropertyPublishState(element.id,element.publish_status)" color="primary"
+                    [(ngModel)]="element.publish_status" [disabled]="!element.verification_status">
+                </mat-slide-toggle>
+                <!-- {{element.publish_status? 'Verified':'In-Review'}} -->
+            </td>
         </ng-container>
         <!-- State Column -->
         <ng-container matColumnDef="state">
@@ -58,7 +82,8 @@
         <!-- Remark Column -->
         <ng-container matColumnDef="remark">
             <th mat-header-cell *matHeaderCellDef> Remark </th>
-            <td mat-cell *matCellDef="let element"> {{element.remark | slice:0:10}}... </td>
+            <td mat-cell *matCellDef="let element" [matTooltip]="element.remark"> {{element.remark | slice:0:10}}...
+            </td>
         </ng-container>
         <!-- No Of Rooms Column -->
         <ng-container matColumnDef="no_of_rooms">
@@ -73,22 +98,70 @@
         <!-- Attached Kitchen Column -->
         <ng-container matColumnDef="attached_kitchen">
             <th mat-header-cell *matHeaderCellDef> Kitchen </th>
-            <td mat-cell *matCellDef="let element"> {{element.attached_kitchen?'Yes':'No'}} </td>
+            <td mat-cell *matCellDef="let element">
+                <svg *ngIf="element.attached_kitchen" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" class="feather feather-check">
+                    <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <svg *ngIf="!element.attached_kitchen" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-x">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+            </td>
         </ng-container>
         <!-- Attached Bathroom Column -->
         <ng-container matColumnDef="attached_bathroom">
             <th mat-header-cell *matHeaderCellDef> Bathroom </th>
-            <td mat-cell *matCellDef="let element"> {{element.attached_bathroom?'Yes':'No'}} </td>
+            <td mat-cell *matCellDef="let element"> 
+                <svg *ngIf="element.attached_bathroom" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" class="feather feather-check">
+                    <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <svg *ngIf="!element.attached_bathroom" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-x">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+            </td>
         </ng-container>
         <!-- Include Water Price Column -->
         <ng-container matColumnDef="include_water_price">
             <th mat-header-cell *matHeaderCellDef> Include Water Price </th>
-            <td mat-cell *matCellDef="let element"> {{element.include_water_price?'Yes':'No'}} </td>
+            <td mat-cell *matCellDef="let element"> 
+                <svg *ngIf="element.include_water_price" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" class="feather feather-check">
+                    <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <svg *ngIf="!element.include_water_price" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-x">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+            </td>
         </ng-container>
         <!-- Include Electricity Price Column -->
         <ng-container matColumnDef="include_electricity_price">
             <th mat-header-cell *matHeaderCellDef> Include Electricity Price </th>
-            <td mat-cell *matCellDef="let element"> {{element.include_electricity_price?'Yes':'No'}} </td>
+            <td mat-cell *matCellDef="let element">
+                <svg *ngIf="element.include_electricity_price" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" class="feather feather-check">
+                    <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <svg *ngIf="!element.include_electricity_price" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-x">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+            </td>
         </ng-container>
         <!-- Rating Column -->
         <ng-container matColumnDef="rating">
