@@ -4,6 +4,7 @@ export interface Property {
     offer_type: string,
     property_name: string,
     verification_status: boolean,
+    publish_status: boolean,
     state: string,
     district: string,
     zipcode: number,

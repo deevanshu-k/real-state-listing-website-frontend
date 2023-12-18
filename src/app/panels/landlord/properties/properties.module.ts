@@ -12,12 +12,15 @@ import { environment } from 'src/environments/environment.development';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPhotoEditorModule } from 'ngx-photo-editor';
 import { EditPropertyComponent } from './components/edit-property/edit-property.component';
+import { DeletePropertyDialogComponent } from './components/delete-property-dialog/delete-property-dialog.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 const routes: Routes = [
   { path: "", component: PropertiesComponent },
   { path: "add", component: AddPropertiesComponent },
   { path: "addimages/:propertyId", component: AddPropertyImageComponent },
-  { path: "edit/:propertyId", component:  EditPropertyComponent}
+  { path: "edit/:propertyId", component: EditPropertyComponent }
 ];
 
 @NgModule({
@@ -26,7 +29,8 @@ const routes: Routes = [
     AddPropertiesComponent,
     AddPropertyImageComponent,
     PropertyTableComponent,
-    EditPropertyComponent
+    EditPropertyComponent,
+    DeletePropertyDialogComponent
   ],
   imports: [
     CommonModule,
@@ -36,6 +40,8 @@ const routes: Routes = [
     MatTableModule,
     MatPaginatorModule,
     NgxPhotoEditorModule,
+    MatSlideToggleModule,
+    MatTooltipModule,
     RouterModule.forChild(routes)
   ]
 })
@@ -43,4 +49,4 @@ export class PropertiesModule {
   constructor() {
     if (!environment.production) console.log("Properties Module Loaded !");
   }
- }
+}

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RouteConfigLoadEnd, RouteConfigLoadStart, Router } from '@angular/router';
 import { ModuleLoaderService } from './services/module-loader.service';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +18,15 @@ export class AppComponent implements OnInit {
   ){}
 
   ngOnInit(): void {
+    const splashScreen: HTMLElement | null = document.getElementById('splashScreenClass');
+    if (splashScreen) {
+      splashScreen.remove();
+    }
+    const devribbon: HTMLElement | null = document.getElementById('dev-ribbon-1');
+    if (environment.production) {
+      if(devribbon) devribbon.remove();
+    }
+
     this.router.events.subscribe(event => {
       if(event instanceof RouteConfigLoadStart){
         let n = this.moduleLoader.$moduleloading.getValue();

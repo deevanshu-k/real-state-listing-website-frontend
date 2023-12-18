@@ -3,22 +3,24 @@
     background-size: cover;
     height: 100vh;
     overflow-y: scroll;
-    padding-top: 90px
 }
 
 .main-frame2 {
     background-image: url("../../../assets/landlord_frame2.png");
     background-repeat: no-repeat;
     background-position: 0px -214px;
+    background-image: none;
 }
 
 .header-search-bar {
-    max-width: 500px;
-    min-height: 432px;
+    width: 100%;
+    height: 100vh;
+    background: rgb(23,123,250);
+background: linear-gradient(0deg, rgba(23,123,250,0.8687850140056023) 0%, rgba(39,48,64,0) 100%);
 }
 
 .header-main {
-    padding-top: 125px;
+    /* /* padding-top: 125px; */
     padding-left: 70px;
 }
 
@@ -36,11 +38,14 @@
     max-width: 418px;
     color: #FFF;
     font-family: var(--primary-font);
-    font-size: 15px;
+    font-size: 18px;
     font-style: normal;
     font-weight: 400;
-    line-height: normal;
-    margin-bottom: 19px;
+    line-height: 30px;
+    letter-spacing: 2px;
+    word-spacing: 7px;
+    margin-top: 40px;
+    margin-bottom: 50px;
 }
 
 .header-main .search-bar {
@@ -72,7 +77,7 @@
 }
 
 .header-2 {
-    /* padding-right: 70px; */
+    background-color: #FFF;
 }
 
 .header-2 h1 {
@@ -369,6 +374,191 @@
     line-height: 150%;
 }
 
+
+/* our-pricing-plans  */
+
+.our-pricing-plans {
+    background: linear-gradient(90deg, #2D64F7 0%, #37A6FF 100%);
+    padding-top: 72px;
+    padding-bottom: 63px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.our-pricing-plans h1 {
+    color: #19FFE3;
+    text-align: center;
+    font-family: var(--tertiory-font);
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 82.8%;
+}
+
+.our-pricing-plans h2 {
+    color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    text-transform: lowercase;
+}
+
+.our-pricing-plans .icon button {
+    width: 100px;
+    color: #FFF;
+    background-color: transparent;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 18px;
+    font-weight: 600;
+
+    border-radius: 8px;
+    border: 1px solid #FFF;
+}
+
+.our-pricing-plans .icon .active {
+    color: #0193FD;
+    background-color: #FFF;
+}
+
+.our-pricing-plans .card {
+    width: 280px;
+    height: fit-content !important;
+    border: 0px;
+    padding-top: 15px;
+    margin: 15px;
+    margin-bottom: 25px;
+    border-radius: 15px;
+    background: #FFF;
+    box-shadow: 0px 4px 130px 0px rgba(150, 163, 181, 0.30);
+}
+
+.our-pricing-plans .card .btn-buy-plan {
+    width: 200px;
+    padding: 8px;
+    border: 0px;
+    background: #5D5FEF;
+    color: #FFF;
+}
+
+.our-pricing-plans .card .btn-activated-plan {
+    width: 200px;
+    padding: 8px;
+    border: 1px solid #F48300;
+    background: #FFF;
+    color: #1F1634;
+}
+
+.our-pricing-plans .card .btn-activated-plan:hover {
+    cursor: not-allowed;
+}
+
+.our-pricing-plans .card .action {
+    margin-bottom: 30px;
+}
+
+.our-pricing-plans .card .plan-rules {
+    padding: 25px;
+    border-top: 1px solid #F5F5F5;
+}
+
+.our-pricing-plans .card .plan-rules .rule {
+    padding-bottom: 8px;
+}
+
+.our-pricing-plans .card .plan-rules p {
+    margin-bottom: 0px;
+}
+
+.our-pricing-plans .card .starting-at {
+    color: #333;
+    padding: 6px;
+    margin-bottom: 0px;
+    text-align: center;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.our-pricing-plans .card .topic {
+    height: 40px;
+    color: #212121;
+    font-family: Inter;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 180%;
+}
+
+.our-pricing-plans .card .price {
+    color: #333;
+    margin-bottom: 6px;
+    text-align: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.our-pricing-plans .card .plan-rules .rule span:nth-child(1) {
+    margin-right: 8px;
+}
+
+/* About Us  */
+.about-us {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap-reverse;
+    flex-direction: row;
+    padding-top: 72px;
+    padding-bottom: 63px;
+    background-color: #FFF;
+}
+
+.about-us .body {
+    max-width: 500px;
+}
+
+.about-us img {
+    max-width: 500px;
+}
+
+.about-us .body h1 {
+    color: #333;
+    font-family: Inter;
+    font-size: 60px;
+    /* font-style: normal; */
+    font-weight: 700;
+    line-height: 120%;
+}
+
+.about-us .body p {
+    color: #212121;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    /* 27px */
+}
+
+
+.about-us .body button {
+    background: #177CFA;
+    box-shadow: 0px 7px 5px 0px rgba(175, 210, 255, 0.20) inset, 0px -4px 5px 0px rgba(175, 210, 255, 0.25) inset;
+    border: 0px;
+
+    color: #FFF;
+    font-family: Inter;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 140%;
+}
+
 @media screen and (max-widht: 1250px) {
     .header-2 .text h1 {
         margin-top: 15px;
@@ -381,14 +571,30 @@
         flex-direction: column !important;
         align-items: center;
     }
+
     .header-watch-p p {
         max-width: 650px !important;
         text-align: center !important;
         padding: 10px;
     }
+
+    .header-2 .text h1 {
+        text-align: center !important;
+        padding-right: 0px !important;
+    }
+
     .p-right-tag {
         padding-left: 0px !important;
         margin-bottom: 20px;
+    }
+
+    .about-us .image {
+        width: 100%;
+        height: 10px;
+    }
+
+    .about-us .image img {
+        display: none;
     }
 }
 
@@ -403,5 +609,13 @@
 
     .header-main {
         padding: 25px !important;
+    }
+
+    .about-us .body {
+        padding: 20px;
+    }
+
+    .about-us .body h1 {
+        font-size: 40px;
     }
 }

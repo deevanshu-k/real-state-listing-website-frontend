@@ -9,6 +9,7 @@ import { PlanDetailsComponent } from './components/plan-details/plan-details.com
 import { environment } from 'src/environments/environment.development';
 import { NgxPhotoEditorModule } from 'ngx-photo-editor';
 import { DocumentsModule } from 'src/app/pages/components/documents/documents.module';
+import { FormsModule } from '@angular/forms';
 
 
 const routes: Routes = [
@@ -30,6 +31,7 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
+    FormsModule,
     NgxPhotoEditorModule,
     DocumentsModule,
     RouterModule.forChild(routes)
