@@ -3,9 +3,11 @@
         <span>
             <img [src]="imgUrl" width="80" height="80" alt="">
         </span>
-        <div>
-            <h4>{{ username }}</h4>
-            <h6>{{ useremail }}</h6>
+        <div class="subheader placeholder-glow d-flex flex-column align-items-center">
+            <h4 *ngIf="userdetails">{{ username }}</h4>
+            <div *ngIf="!userdetails" class="placeholder"></div>
+            <h6 *ngIf="userdetails">{{ useremail }}</h6>
+            <div *ngIf="!userdetails" class="placeholder mt-1"></div>
         </div>
     </div>
 
@@ -20,40 +22,46 @@
         </div>
     </div>
 
-    <div class="body p-4">
+    <div class="body p-4 placeholder-glow ">
         <div class="container-flied-group d-flex flex-row w-100 justify-content-around">
             <div class="field">
                 <label>Name:</label>
-                <input [disabled]="!editmode" [class.inactive]="!editmode" [(ngModel)]="username" type="text" name=""
-                    id="" value="Deevanshu Kushwah">
+                <span class="placeholder" *ngIf="!userdetails"></span>
+                <input [disabled]="!editmode" *ngIf="userdetails" [class.inactive]="!editmode" [(ngModel)]="username" type="text">
             </div>
             <div class="field">
                 <label>Contact Us:</label>
-                <input [disabled]="!editmode" [class.inactive]="!editmode" type="number" name="" id="" value="9826728502">
+                <span class="placeholder" *ngIf="!userdetails"></span>
+                <input [disabled]="!editmode" *ngIf="userdetails" [class.inactive]="!editmode" [(ngModel)]="userphoneno" type="number">
             </div>
         </div>
         <div class="container-flied-group d-flex flex-row w-100 justify-content-around">
             <div class="field">
                 <label>Mail Id:</label>
-                <input [disabled]="!editmode" [class.inactive]="!editmode" [(ngModel)]="useremail" type="email" name=""
-                    id="" value="deevanshukushwah80@gmail.com">
+                <span class="placeholder" *ngIf="!userdetails"></span>
+                <input [disabled]="!editmode" *ngIf="userdetails" [class.inactive]="!editmode" [(ngModel)]="useremail" type="email">
             </div>
             <div class="field">
                 <label>Address:</label>
-                <input [disabled]="!editmode" [class.inactive]="!editmode" type="text" name="" id=""
-                    value="122 Bhairath Colony Dharnaka Mhow">
+                <span class="placeholder" *ngIf="!userdetails"></span>
+                <input [disabled]="!editmode" *ngIf="userdetails" [class.inactive]="!editmode" [(ngModel)]="useraddress" type="text">
+                <!-- <textarea [disabled]="!editmode" *ngIf="userdetails" [class.inactive]="!editmode" [(ngModel)]="useraddress" type="text" cols="30" rows="1"></textarea> --> 
             </div>
         </div>
     </div>
 
     <div class="action d-flex flex-row-reverse p-4">
         <button (click)="editmode = !editmode">
-            {{ editmode?"Cancel":"Edit Details" }}
-            <svg *ngIf="!editmode" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+            {{ editmode?"Cancel":"Edit" }}
+            <svg *ngIf="!editmode" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17"
+                fill="none">
                 <path
                     d="M14.875 14.875H2.125M14.0817 4.95834L7.79167 11.2129L4.95833 12.0417L5.78708 9.20834L12.0771 2.91834C12.3431 2.63036 12.7126 2.45968 13.1043 2.44374C13.496 2.42781 13.8781 2.56792 14.1667 2.83334C14.3035 2.97694 14.4101 3.14659 14.4801 3.33221C14.5502 3.51782 14.5821 3.71562 14.5742 3.91384C14.5663 4.11206 14.5186 4.30666 14.434 4.48609C14.3494 4.66552 14.2296 4.82612 14.0817 4.95834Z"
                     stroke="#F8F8F8" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
+        </button>
+        <button class="mx-2" *ngIf="editmode">
+            Update
         </button>
     </div>
 </div>

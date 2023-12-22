@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { Token } from 'src/app/interfaces/token';
+import { User } from 'src/app/interfaces/user';
 import { AuthService } from 'src/app/services/auth.service';
+import { SnackbarService } from 'src/app/services/snackbar.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-account-details',
@@ -8,22 +11,40 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./account-details.component.css']
 })
 export class AccountDetailsComponent {
-  username: string = "";
-  useremail: string = "";
   imgUrl: string = '/assets/no_profile_image.svg';
-  decodedToken?: Token;
-
   editmode: boolean = false;
 
+  username?: string;
+  useremail?: string;
+  userphoneno?: string;
+  useraddress?: string;
+
+  userdetails?: User;
+
+
   constructor(
-    private authService: AuthService
-  ){
+    private authService: AuthService,
+    private userService: UserService,
+    private _snackbarService: SnackbarService
+  ) {
     let url = this.authService.getProfileImage();
     if (url) this.imgUrl = url + "?nocache=" + Date.now();
-    let data = this.authService.getDecodedToken(String(localStorage.getItem('token')));
-    this.decodedToken = data;
-    this.username = data.username;
-    this.useremail = data.email;
+    this.userService.getUserDetails().subscribe({
+      next: (data) => {
+        this.userdetails = data.data;
+        this.username = this.userdetails.username;
+        this.useremail = this.userdetails.email;
+        this.userphoneno = this.userdetails.phone_no;
+        this.useraddress = this.userdetails.address;
+      },
+      error: (e) => {
+        this._snackbarService.openSnackBar(e.error.message, "OK", "end", "bottom", 3000);
+      }
+    });
+  }
+
+  cancelEditMode() {
+    this.editmode = false;
   }
 
 }
