@@ -1,0 +1,22 @@
+.noofproperty {
+    color:  #666;
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    /* 114.286% */
+    text-transform: uppercase;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card-container {
+    width: 49%;
+    margin-bottom: 14px;
+    border-radius: 0px;
+}

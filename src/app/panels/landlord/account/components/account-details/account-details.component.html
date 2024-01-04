@@ -27,32 +27,36 @@
             <div class="field">
                 <label>Name:</label>
                 <span class="placeholder" *ngIf="!userdetails"></span>
-                <input [disabled]="!editmode" *ngIf="userdetails" [class.inactive]="!editmode" [(ngModel)]="username" type="text">
+                <input [disabled]="!editmode || updatebtnloading" *ngIf="userdetails" [class.inactive]="!editmode" [(ngModel)]="username"
+                    type="text">
             </div>
             <div class="field">
                 <label>Contact Us:</label>
                 <span class="placeholder" *ngIf="!userdetails"></span>
-                <input [disabled]="!editmode" *ngIf="userdetails" [class.inactive]="!editmode" [(ngModel)]="userphoneno" type="number">
+                <input [disabled]="!editmode || updatebtnloading" *ngIf="userdetails" [class.inactive]="!editmode" [(ngModel)]="userphoneno"
+                    type="number">
             </div>
         </div>
         <div class="container-flied-group d-flex flex-row w-100 justify-content-around">
             <div class="field">
                 <label>Mail Id:</label>
                 <span class="placeholder" *ngIf="!userdetails"></span>
-                <input [disabled]="!editmode" *ngIf="userdetails" [class.inactive]="!editmode" [(ngModel)]="useremail" type="email">
+                <input [disabled]="true" *ngIf="userdetails" [class.inactive]="true" [(ngModel)]="useremail"
+                    type="email">
             </div>
             <div class="field">
                 <label>Address:</label>
                 <span class="placeholder" *ngIf="!userdetails"></span>
-                <input [disabled]="!editmode" *ngIf="userdetails" [class.inactive]="!editmode" [(ngModel)]="useraddress" type="text">
-                <!-- <textarea [disabled]="!editmode" *ngIf="userdetails" [class.inactive]="!editmode" [(ngModel)]="useraddress" type="text" cols="30" rows="1"></textarea> --> 
+                <input [disabled]="!editmode || updatebtnloading" *ngIf="userdetails" [class.inactive]="!editmode" [(ngModel)]="useraddress"
+                    type="text">
+                <!-- <textarea [disabled]="!editmode" *ngIf="userdetails" [class.inactive]="!editmode" [(ngModel)]="useraddress" type="text" cols="30" rows="1"></textarea> -->
             </div>
         </div>
     </div>
 
     <div class="action d-flex flex-row-reverse p-4">
-        <button (click)="editmode = !editmode">
-            {{ editmode?"Cancel":"Edit" }}
+        <button *ngIf="!editmode" (click)="editmode = !editmode">
+            Edit
             <svg *ngIf="!editmode" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17"
                 fill="none">
                 <path
@@ -60,8 +64,12 @@
                     stroke="#F8F8F8" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
         </button>
-        <button class="mx-2" *ngIf="editmode">
-            Update
+        <button *ngIf="editmode" [disabled]="updatebtnloading" (click)="cancelEditMode()">
+            Cancel
+        </button>
+        <button class="mx-2" (click)="updateUserDetails()"  *ngIf="editmode" [disabled]="updatebtnloading">
+            {{ updatebtnloading?'':'Update' }}
+            <span *ngIf="updatebtnloading" class="spinner-border spinner-border-sm" aria-hidden="true"></span>
         </button>
     </div>
 </div>

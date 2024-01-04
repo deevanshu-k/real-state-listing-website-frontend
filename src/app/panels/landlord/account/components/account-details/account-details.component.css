@@ -104,9 +104,10 @@
 
 .body .container-flied-group .field input {
     color: #353252;
+    /* min-width: 250px; */
     /* width: calc(100% - 100px); */
     font-family: Poppins;
-    font-size: 16px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -149,6 +150,10 @@
     font-weight: 400;
     line-height: normal;
     padding: 8px 10px; 
+}
+
+.action button:disabled {
+    background-color: #c8c8c8;
 }
 
 @media screen and (max-width:600px) {

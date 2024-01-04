@@ -26,4 +26,8 @@ export class UserService {
   getUserDetails(): Observable<{ code: number, data: User }> {
     return this.http.get<{ code: number, data: User }>(environment.END_POINT + "/user/details");
   }
+
+  updateUserDetails(data: { username?: string, address?: string, phone_no?: string }): Observable<{ code: number, message: string }> {
+    return this.http.post<{ code: number, message: string }>(environment.END_POINT + "/user/details", data);
+  }
 }

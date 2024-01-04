@@ -23,6 +23,10 @@ import { TokenInterceptor } from './interceptors/token-interceptor.service';
 import { LogoutComponent } from './services/dialog/logout/logout.component';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
+import { PropertyCardsBodyComponent } from './pages/find-rooms/property-cards-body/property-cards-body.component';
+import { SortPropertyComponent } from './pages/find-rooms/sort-property/sort-property.component';
+import { PropertyFilterComponent } from './pages/find-rooms/property-filter/property-filter.component';
+import { PropertyCardComponent } from './pages/find-rooms/property-card/property-card.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,11 @@ import { LoaderInterceptor } from './interceptors/loader.interceptor';
     ContactUsComponent,
     FindRoomsComponent,
     LogoutComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    PropertyCardsBodyComponent,
+    SortPropertyComponent,
+    PropertyFilterComponent,
+    PropertyCardComponent
   ],
   imports: [
     BrowserModule,
